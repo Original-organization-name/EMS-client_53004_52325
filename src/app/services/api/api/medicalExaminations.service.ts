@@ -98,12 +98,12 @@ export class MedicalExaminationsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiEmployeesEmployeeIdMedicalExaminationsGet(employeeId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<MedicalExaminationModel>>;
-    public apiEmployeesEmployeeIdMedicalExaminationsGet(employeeId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<MedicalExaminationModel>>>;
-    public apiEmployeesEmployeeIdMedicalExaminationsGet(employeeId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<MedicalExaminationModel>>>;
-    public apiEmployeesEmployeeIdMedicalExaminationsGet(employeeId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public getEmployeeMedicalExams(employeeId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<MedicalExaminationModel>>;
+    public getEmployeeMedicalExams(employeeId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<MedicalExaminationModel>>>;
+    public getEmployeeMedicalExams(employeeId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<MedicalExaminationModel>>>;
+    public getEmployeeMedicalExams(employeeId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (employeeId === null || employeeId === undefined) {
-            throw new Error('Required parameter employeeId was null or undefined when calling apiEmployeesEmployeeIdMedicalExaminationsGet.');
+            throw new Error('Required parameter employeeId was null or undefined when calling getEmployeeMedicalExams.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -164,15 +164,15 @@ export class MedicalExaminationsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiEmployeesEmployeeIdMedicalExaminationsIdGet(employeeId: string, id: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<MedicalExaminationModel>;
-    public apiEmployeesEmployeeIdMedicalExaminationsIdGet(employeeId: string, id: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MedicalExaminationModel>>;
-    public apiEmployeesEmployeeIdMedicalExaminationsIdGet(employeeId: string, id: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MedicalExaminationModel>>;
-    public apiEmployeesEmployeeIdMedicalExaminationsIdGet(employeeId: string, id: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public getMedicalExamById(employeeId: string, id: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<MedicalExaminationModel>;
+    public getMedicalExamById(employeeId: string, id: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MedicalExaminationModel>>;
+    public getMedicalExamById(employeeId: string, id: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MedicalExaminationModel>>;
+    public getMedicalExamById(employeeId: string, id: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (employeeId === null || employeeId === undefined) {
-            throw new Error('Required parameter employeeId was null or undefined when calling apiEmployeesEmployeeIdMedicalExaminationsIdGet.');
+            throw new Error('Required parameter employeeId was null or undefined when calling getMedicalExamById.');
         }
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiEmployeesEmployeeIdMedicalExaminationsIdGet.');
+            throw new Error('Required parameter id was null or undefined when calling getMedicalExamById.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -233,12 +233,12 @@ export class MedicalExaminationsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiEmployeesEmployeeIdMedicalExaminationsPost(employeeId: string, medicalExamination?: MedicalExamination, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<MedicalExaminationModel>;
-    public apiEmployeesEmployeeIdMedicalExaminationsPost(employeeId: string, medicalExamination?: MedicalExamination, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MedicalExaminationModel>>;
-    public apiEmployeesEmployeeIdMedicalExaminationsPost(employeeId: string, medicalExamination?: MedicalExamination, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MedicalExaminationModel>>;
-    public apiEmployeesEmployeeIdMedicalExaminationsPost(employeeId: string, medicalExamination?: MedicalExamination, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public updateMedicalExam(employeeId: string, medicalExamination?: MedicalExamination, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<MedicalExaminationModel>;
+    public updateMedicalExam(employeeId: string, medicalExamination?: MedicalExamination, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MedicalExaminationModel>>;
+    public updateMedicalExam(employeeId: string, medicalExamination?: MedicalExamination, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MedicalExaminationModel>>;
+    public updateMedicalExam(employeeId: string, medicalExamination?: MedicalExamination, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (employeeId === null || employeeId === undefined) {
-            throw new Error('Required parameter employeeId was null or undefined when calling apiEmployeesEmployeeIdMedicalExaminationsPost.');
+            throw new Error('Required parameter employeeId was null or undefined when calling updateMedicalExam.');
         }
 
         let localVarHeaders = this.defaultHeaders;
