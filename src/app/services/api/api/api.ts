@@ -1,0 +1,15 @@
+export * from './employees.service';
+import { EmployeesService } from './employees.service';
+export * from './medicalExaminationDict.service';
+import { MedicalExaminationDictService } from './medicalExaminationDict.service';
+export * from './medicalExaminations.service';
+import { MedicalExaminationsService } from './medicalExaminations.service';
+export * from './qualificationDict.service';
+import { QualificationDictService } from './qualificationDict.service';
+export * from './qualifications.service';
+import { QualificationsService } from './qualifications.service';
+export * from './trainingDict.service';
+import { TrainingDictService } from './trainingDict.service';
+export * from './trainings.service';
+import { TrainingsService } from './trainings.service';
+export const APIS = [EmployeesService, MedicalExaminationDictService, MedicalExaminationsService, QualificationDictService, QualificationsService, TrainingDictService, TrainingsService];

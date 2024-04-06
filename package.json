@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "gapi": "docker compose -f .\\src\\app\\services\\generator.yaml up"
   },
   "private": true,
   "dependencies": {

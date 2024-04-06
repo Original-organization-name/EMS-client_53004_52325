@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  api-generator:
+    image: openapitools/openapi-generator-cli
+    volumes:
+      - ./api:/api
+    networks:
+      - ems
+    command: >
+      generate -i http://ems-api/swagger/v1/swagger.yaml
+      -g typescript-angular -o /api
+
+networks:
+  ems:
+    external: true
