@@ -1,20 +1,15 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { Component, OnInit } from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    MatToolbarModule, 
-    MatButtonModule, 
-    MatIconModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    templateUrl: './app.component.html'
 })
-export class AppComponent {
-  title = 'EMS_CLIENT';
+export class AppComponent implements OnInit {
+
+    constructor(private primengConfig: PrimeNGConfig) { }
+
+    ngOnInit() {
+        this.primengConfig.ripple = true;
+    }
 }
