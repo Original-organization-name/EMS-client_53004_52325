@@ -7,7 +7,6 @@ import { LayoutService } from "../service/app.layout.service";
     templateUrl: './app.topbar.component.html'
 })
 export class AppTopBarComponent {
-
     items!: MenuItem[];
 
     @ViewChild('menubutton') menuButton!: ElementRef;

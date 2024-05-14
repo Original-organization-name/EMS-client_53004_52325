@@ -21,11 +21,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     subscription!: Subscription;
 
     constructor(private productService: ProductService, public layoutService: LayoutService) {
-        this.subscription = this.layoutService.configUpdate$
-        .pipe(debounceTime(25))
-        .subscribe((config) => {
-            this.initChart();
-        });
+       
     }
 
     ngOnInit() {
