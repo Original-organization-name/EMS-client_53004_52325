@@ -20,7 +20,7 @@ import { AppLayoutComponent } from "./layout/app.layout.component";
             {
                 path: 'app', component: AppLayoutComponent,
                 children: [
-                    { path: '', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
+                    { path: '', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.EmsDashboardModule) },
                 ]
             },
             { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
