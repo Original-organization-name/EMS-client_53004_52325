@@ -2,6 +2,8 @@
 README.md
 api.module.ts
 api/api.ts
+api/dashboard.service.ts
+api/education.service.ts
 api/employees.service.ts
 api/medicalExaminationDict.service.ts
 api/medicalExaminations.service.ts
@@ -18,10 +20,14 @@ model/contact.ts
 model/contactModel.ts
 model/contactType.ts
 model/contractPrivacy.ts
+model/dashboardAnalytics.ts
 model/dictionaryItem.ts
 model/dictionaryItemModel.ts
+model/educationDto.ts
+model/educationModel.ts
 model/employee.ts
 model/employeeModel.ts
+model/employeeShortInfoModel.ts
 model/gender.ts
 model/medicalExamination.ts
 model/medicalExaminationModel.ts
@@ -30,6 +36,7 @@ model/paymentMethod.ts
 model/paymentType.ts
 model/qualification.ts
 model/qualificationModel.ts
+model/schoolType.ts
 model/training.ts
 model/trainingModel.ts
 param.ts

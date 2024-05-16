@@ -1,0 +1,125 @@
+{
+	"data": 
+		[
+			{
+				"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+				"name": "Adrian",
+				"surname": "Babauj",
+				"pesel": "85100475486",
+				"employmentDate": "2024-05-15",
+				"salary": 3400,
+				"salaryType": "month",
+				"contractType": "employment",
+				"fteDenominator": 1,
+				"fteNumerator": 1
+			},
+			{
+				"id": "1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
+				"name": "Sophia",
+				"surname": "Kowalski",
+				"pesel": "90071623457",
+				"employmentDate": "2023-09-20",
+				"salary": 3800,
+				"salaryType": "month",
+				"contractType": "employment",
+				"fteDenominator": 1,
+				"fteNumerator": 1
+			},
+			{
+				"id": "2b3c4d5e-6f7g-8h9i-0j1k-2l3m4n5o6p7q",
+				"name": "Liam",
+				"surname": "Nowak",
+				"pesel": "92030567891",
+				"employmentDate": "2024-01-10",
+				"salary": 4200,
+				"salaryType": "month",
+				"contractType": "employment",
+				"fteDenominator": 1,
+				"fteNumerator": 1
+			},
+			{
+				"id": "3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8r",
+				"name": "Emma",
+				"surname": "Wójcik",
+				"pesel": "95012234567",
+				"employmentDate": "2023-12-01",
+				"salary": 3500,
+				"salaryType": "month",
+				"contractType": "employment",
+				"fteDenominator": 1,
+				"fteNumerator": 1
+			},
+			{
+				"id": "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s",
+				"name": "Olivia",
+				"surname": "Lewandowski",
+				"pesel": "88071578901",
+				"employmentDate": "2024-02-15",
+				"salary": 3700,
+				"salaryType": "month",
+				"contractType": "employment",
+				"fteDenominator": 1,
+				"fteNumerator": 1
+			},
+			{
+				"id": "5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t",
+				"name": "Mason",
+				"surname": "Zieliński",
+				"pesel": "87090512345",
+				"employmentDate": "2024-03-25",
+				"salary": 3900,
+				"salaryType": "month",
+				"contractType": "employment",
+				"fteDenominator": 1,
+				"fteNumerator": 1
+			},
+			{
+				"id": "6f7g8h9i-0j1k-2l3m-4n5o-6p7q8r9s0t1u",
+				"name": "Isabella",
+				"surname": "Szymański",
+				"pesel": "93080123456",
+				"employmentDate": "2023-11-05",
+				"salary": 4100,
+				"salaryType": "month",
+				"contractType": "employment",
+				"fteDenominator": 1,
+				"fteNumerator": 1
+			},
+			{
+				"id": "7g8h9i0j-1k2l-3m4n-5o6p-7q8r9s0t1u2v",
+				"name": "Noah",
+				"surname": "Kaczmarek",
+				"pesel": "94021234567",
+				"employmentDate": "2024-04-10",
+				"salary": 4000,
+				"salaryType": "month",
+				"contractType": "employment",
+				"fteDenominator": 1,
+				"fteNumerator": 1
+			},
+			{
+				"id": "8h9i0j1k-2l3m-4n5o-6p7q-8r9s0t1u2v3w",
+				"name": "Ava",
+				"surname": "Krawczyk",
+				"pesel": "86090765432",
+				"employmentDate": "2023-10-25",
+				"salary": 3600,
+				"salaryType": "month",
+				"contractType": "employment",
+				"fteDenominator": 1,
+				"fteNumerator": 1
+			},
+			{
+				"id": "9i0j1k2l-3m4n-5o6p-7q8r-9s0t1u2v3w4x",
+				"name": "James",
+				"surname": "Jankowski",
+				"pesel": "91030567890",
+				"employmentDate": "2024-03-01",
+				"salary": 4300,
+				"salaryType": "month",
+				"contractType": "employment",
+				"fteDenominator": 1,
+				"fteNumerator": 1
+			}
+		]
+}

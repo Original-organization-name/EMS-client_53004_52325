@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import { environment } from '../../../environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 export const BASE_PATH = new InjectionToken<string>('basePath', {
     providedIn: 'root',

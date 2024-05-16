@@ -1,3 +1,7 @@
+export * from './dashboard.service';
+import { DashboardService } from './dashboard.service';
+export * from './education.service';
+import { EducationService } from './education.service';
 export * from './employees.service';
 import { EmployeesService } from './employees.service';
 export * from './medicalExaminationDict.service';
@@ -12,4 +16,4 @@ export * from './trainingDict.service';
 import { TrainingDictService } from './trainingDict.service';
 export * from './trainings.service';
 import { TrainingsService } from './trainings.service';
-export const APIS = [EmployeesService, MedicalExaminationDictService, MedicalExaminationsService, QualificationDictService, QualificationsService, TrainingDictService, TrainingsService];
+export const APIS = [DashboardService, EducationService, EmployeesService, MedicalExaminationDictService, MedicalExaminationsService, QualificationDictService, QualificationsService, TrainingDictService, TrainingsService];
