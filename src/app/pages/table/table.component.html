@@ -1,0 +1,54 @@
+<div class="col-12">
+	<div class="card">
+		<h5>Row Expand</h5>
+		<p-table [value]="employees" dataKey="name" [rows]="10" [expandedRowKeys]="" styleClass="p-datatable-gridlines" [paginator]="true" responsiveLayout="scroll">
+			<ng-template pTemplate="caption">
+				<div class="flex justify-content-between flex-column sm:flex-row">
+					<span class="p-input-icon-right mb-1 float-right">
+						<i class="pi pi-search"></i>
+						<input pInputText type="text" placeholder="Search" class="w-full ml-0"/>
+					</span>
+				</div>
+			</ng-template>
+			<ng-template pTemplate="header">
+				<tr>
+					<th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+					<th pSortableColumn="position">Position <p-sortIcon field="position"></p-sortIcon></th>
+					<th pSortableColumn="startContractDate">Start of Contract <p-sortIcon field="startContractDate"></p-sortIcon></th>
+					<th pSortableColumn="endContractDate">End of Contract <p-sortIcon field="endContractDate"></p-sortIcon></th>
+					<th pSortableColumn="rate">Salary <p-sortIcon field="rate"></p-sortIcon></th>
+					<th pSortableColumn="inventoryStatus">Status <p-sortIcon field="inventoryStatus"></p-sortIcon></th>
+                    <th pSortableColumn="verified" class="flex justify-content-between align-items-center">Verified 
+                        <p-columnFilter type="boolean" field="verified" display="menu"></p-columnFilter>               
+				</tr>
+			</ng-template>
+            <ng-template pTemplate="body" let-employee>
+					<tr>
+						<td>
+							<img src="/src/assets/layout/images/banner-primeblocks.png" width="32" style="vertical-align: middle"/>
+							{{employee.fullName}}
+						</td>
+						<td>
+							
+							<span>{{employee.jobPosition}}</span>
+						</td>
+						<td>
+							{{employee.startContractDate | date: 'dd.MM.yyyy'}}
+						</td>
+                        <td>
+							{{employee.endContractDate | date: 'MM.dd.yyyy'}}
+						</td>
+						<td>
+							{{employee.contractRate | currency:'USD':'symbol'}}
+						</td>
+						<td>
+							<span [class]="'employee-badge status-' + employee.status">{{employee.status}}</span>
+						</td>
+						<td class="text-center">
+							<i class="pi" [ngClass]="{'true-icon pi-check-circle text-green-500': employee.verified, 'false-icon pi-times-circle text-pink-500': !employee.verified}"></i>
+						</td>
+					</tr>
+				</ng-template>
+		</p-table>
+	 </div>
+</div>
