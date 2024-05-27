@@ -12,7 +12,7 @@
 
 
 export interface DictionaryItemModel { 
-    id?: string;
-    value?: string | null;
+    id: string;
+    value: string;
 }
 

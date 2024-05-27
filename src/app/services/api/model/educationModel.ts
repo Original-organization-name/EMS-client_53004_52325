@@ -13,11 +13,11 @@ import { SchoolType } from './schoolType';
 
 
 export interface EducationModel { 
-    id?: string;
-    schoolName?: string | null;
-    type?: SchoolType;
-    start?: string;
-    end?: string;
+    id: string;
+    schoolName: string;
+    type: SchoolType;
+    start: string;
+    end: string;
     degree?: string | null;
     occupation?: string | null;
 }

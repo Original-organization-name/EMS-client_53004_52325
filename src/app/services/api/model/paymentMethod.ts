@@ -13,7 +13,7 @@ import { PaymentType } from './paymentType';
 
 
 export interface PaymentMethod { 
-    type?: PaymentType;
+    type: PaymentType;
     bankAccount?: string | null;
 }
 export namespace PaymentMethod {

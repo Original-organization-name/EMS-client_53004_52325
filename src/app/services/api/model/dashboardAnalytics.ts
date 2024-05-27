@@ -13,9 +13,9 @@ import { EmployeeShortInfoModel } from './employeeShortInfoModel';
 
 
 export interface DashboardAnalytics { 
-    totalEmployeeCount?: number;
-    addInLastMonth?: number;
-    totalPayroll?: number;
+    totalEmployeeCount: number;
+    addInLastMonth: number;
+    totalPayroll: number;
     recentAddedEmployees?: Array<EmployeeShortInfoModel> | null;
     nearExpiryContract?: Array<string> | null;
 }

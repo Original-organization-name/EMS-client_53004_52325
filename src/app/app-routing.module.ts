@@ -21,6 +21,12 @@ import { AppLayoutComponent } from "./layout/app.layout.component";
                 path: 'app', component: AppLayoutComponent,
                 children: [
                     { path: '', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.EmsDashboardModule) },
+                    { 
+                        path: 'employees', 
+                        children: [
+                            { path: 'create', loadChildren: () => import('./pages/create-employee/create-employee.module').then(m => m.EmsCreateEmployeeModule) },
+                        ]
+                     },
                 ]
             },
             { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },

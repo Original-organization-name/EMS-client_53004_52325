@@ -1,0 +1,70 @@
+
+<div class="grid">
+	<div class="col-12 md:col-6">
+		<div class="card grid">
+            <div class="col-5">
+                <ngp-image-picker
+                    ($imageChanged)="onImageChanged($event)"
+                    [_config]="config"
+                    [_imageSrc]="initialImage"
+                ></ngp-image-picker>
+            </div>
+
+            <div class="col-7 p-fluid">
+                <div class="field">
+                    <label htmlFor="name1">Name</label>
+                    <input required pInputText id="name1" type="text" [formControl]="createService.personalForm.controls.name"/>
+                </div>
+                <div class="field">
+                    <label htmlFor="surname1">Surname</label>
+                    <input required pInputText id="surname1" type="text" [formControl]="createService.personalForm.controls.surname"/>
+                </div>
+                <div class="field">
+                    <label htmlFor="pesel1">Pesel</label>
+                    <input pInputText id="pesel1" type="text" [formControl]="createService.personalForm.controls.pesel"/>
+                </div>
+            </div>
+		</div>
+		
+		<div class="card grid p-fluid">
+            <div class="col-6">
+                <div class="field">
+					<label for="calendar">Birthdate</label>
+					<p-calendar inputId="calendar" [formControl]="createService.personalForm.controls.birthdate" [showIcon]="true"></p-calendar>
+				</div>
+
+				<div class="field">
+					<label htmlFor="email2">Email</label>
+					<input pInputText id="email2" type="email" [formControl]="createService.personalForm.controls.email"/>
+				</div>
+
+				<div class="field grid formgrid">
+					<div class="col-6">
+						<div class="field-radiobutton">
+							<p-radioButton name="gender" value="Male" [formControl]="createService.personalForm.controls.gender" id="male"></p-radioButton>
+							<label for="male">Male</label>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="field-radiobutton">
+							<p-radioButton name="gender" value="Female" [formControl]="createService.personalForm.controls.gender" id="female"></p-radioButton>
+							<label for="female">Female</label>
+						</div>
+					</div>
+				</div>
+            </div>
+
+            <div class="col-6 p-fluid">
+                <div class="field">
+                    <label htmlFor="nip1">Nip</label>
+                    <input pInputText id="nip1" type="text" [formControl]="createService.personalForm.controls.nip"/>
+                </div>
+
+                <div class="field">
+                    <label htmlFor="Phone">Phone</label>
+                    <input pInputText id="Phone1" type="text" [formControl]="createService.personalForm.controls.phoneNumber"/>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>

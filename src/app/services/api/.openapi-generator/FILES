@@ -16,10 +16,6 @@ encoder.ts
 git_push.sh
 index.ts
 model/address.ts
-model/contact.ts
-model/contactModel.ts
-model/contactType.ts
-model/contractPrivacy.ts
 model/dashboardAnalytics.ts
 model/dictionaryItem.ts
 model/dictionaryItemModel.ts

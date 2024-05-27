@@ -12,15 +12,15 @@
 
 
 export interface EmployeeShortInfoModel { 
-    id?: string;
-    name?: string | null;
-    surname?: string | null;
+    id: string;
+    name: string;
+    surname: string;
     pesel?: string | null;
-    employmentDate?: string;
-    salary?: number;
-    salaryType?: string | null;
-    contractType?: string | null;
-    fteDenominator?: number;
-    fteNumerator?: number;
+    employmentDate: string;
+    salary: number;
+    salaryType: string;
+    contractType: string;
+    fteDenominator: number;
+    fteNumerator: number;
 }
 

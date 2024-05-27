@@ -13,10 +13,10 @@ import { SchoolType } from './schoolType';
 
 
 export interface EducationDto { 
-    schoolName?: string | null;
-    type?: SchoolType;
-    start?: string;
-    end?: string;
+    schoolName: string;
+    type: SchoolType;
+    start: string;
+    end: string;
     degree?: string | null;
     occupation?: string | null;
 }

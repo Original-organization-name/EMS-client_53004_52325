@@ -12,8 +12,8 @@
 
 
 export interface MedicalExamination { 
-    medicalExamItemId?: string;
-    executionDate?: string;
+    medicalExamItemId: string;
+    executionDate: string;
     expirationDate?: string | null;
 }
 
