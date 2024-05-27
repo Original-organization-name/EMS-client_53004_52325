@@ -2,12 +2,12 @@
 export interface EmployeeListData {
   id?: number;
   fullName?: string;
-  surname?: string;
-  country?: string;
-  status?: string;
+  pesel?: string;
   jobPosition?: string,
-  startContractDate: Date;
-  endContractDate: Date;
-  contractRate?: number;
-  verified?: boolean;
+  startContractDate?: Date;
+  endContractDate?: Date;
+  salary?: number;
+  salaryType?: string;
+  fteNumerator?: number;
+  fteDenumerator?: number;
 }

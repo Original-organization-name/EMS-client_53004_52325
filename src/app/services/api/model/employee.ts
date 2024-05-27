@@ -21,7 +21,7 @@ export interface ContractData {
     jobPosition?: string;
 }
 
-export interface ContractRate {
+export interface salary {
     rate?: number;
 }
 
