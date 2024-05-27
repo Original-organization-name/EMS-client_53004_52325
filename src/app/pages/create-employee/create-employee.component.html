@@ -1,20 +1,20 @@
 
-<div class="card">
-	<div class="grid grid-nogutter justify-content-end">
+<div class="card grid">
+	<div class="col-1">
 		<p-button label="Back" (onClick)="prevPage()" icon="pi pi-angle-left"></p-button>
 	</div>
 
-    <p-steps #steps [activeIndex]="active" [model]="items" />
+    <p-steps class="col-10" #steps [activeIndex]="active" [model]="items" />
 
-	<div class="grid grid-nogutter justify-content-end">
+	<div class="col-1">
 		<p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"></p-button>
 	</div>
 </div>
 
 <ng-container [ngSwitch]="active">
-	<div *ngSwitchCase="0">
+	<ng-container *ngSwitchCase="0">
 		<app-personal-data></app-personal-data>
-	</div>
+	</ng-container>
 	<div *ngSwitchCase="1">
 		<app-contracts></app-contracts>
 	</div>
