@@ -15,9 +15,6 @@ export class EmsPersonalDataComponent {
   protected createService = inject(EmsCreateEmployeeService);
   protected countryService = inject(CountryService);
 
-  initialImage: string = '';
-  imageSrc: any = '';
-
   config: ImagePickerConf = {
     borderRadius: '8px',
     language: 'en',
@@ -34,7 +31,6 @@ export class EmsPersonalDataComponent {
   }
 
   onImageChanged(dataUri) {
-    this.imageSrc = dataUri;
-    console.log(this.imageSrc)
+    this.createService.imageSrc = dataUri;
   }
 }

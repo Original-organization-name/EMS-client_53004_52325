@@ -7,18 +7,18 @@
 					<ngp-image-picker
                         ($imageChanged)="onImageChanged($event)"
                         [_config]="config"
-                        [_imageSrc]="initialImage"
+                        [_imageSrc]="createService.imageSrc"
                     ></ngp-image-picker>
 				</div>
 
-                <div class="field col-7">
+                <div class="col-7">
 					<div class="field">
                         <label htmlFor="name1">Name</label>
-                        <input required pInputText id="name1" type="text" [formControl]="createService.personalForm.controls.name"/>
+                        <input required pInputText id="name1" type="text" [formControl]="createService.personalForm.controls.name" aria-describedby="name1-help" />
                     </div>
                     <div class="field">
                         <label htmlFor="surname1">Surname</label>
-                        <input required pInputText id="surname1" type="text" [formControl]="createService.personalForm.controls.surname"/>
+                        <input required pInputText id="surname1" type="text" [formControl]="createService.personalForm.controls.surname" aria-describedby="surname1-help"/>
                     </div>
                     <div class="field">
                         <label htmlFor="pesel1">Pesel</label>
@@ -29,38 +29,37 @@
 		</div>
 		
 		<div class="card p-fluid">
-            
-			<div class="p-formgrid grid">
-                <div class="field col-6">
+            <h5>Additional Data</h5>
+			<div class="p-formgrid grid pt-4">
+                <div class="field col-6 py-0">
                     <label for="calendar">Birthdate</label>
                     <p-calendar inputId="calendar" [formControl]="createService.personalForm.controls.birthdate" [showIcon]="true"></p-calendar>
                 </div>
 
-                <div class="field col-6">
+                <div class="field col-6 py-0">
                     <label htmlFor="nip1">Nip</label>
                     <input pInputText id="nip1" type="text" [formControl]="createService.personalForm.controls.nip"/>
                 </div>
     
-                <div class="field col-6">
+                <div class="field col-6 py-0">
                     <label htmlFor="email2">Email</label>
-                    <input pInputText id="email2" type="email" [formControl]="createService.personalForm.controls.email"
-                        mask="A*@A*.SSS" [validation]="true" [dropSpecialCharacters]="false" />
+                    <input pInputText id="email2" type="email" [formControl]="createService.personalForm.controls.email"/>
                 </div>
 
-                <div class="field col-6">
+                <div class="field col-6 py-0">
                     <label htmlFor="Phone">Phone</label>
                     <input pInputText id="Phone1" type="text" [formControl]="createService.personalForm.controls.phoneNumber"/>
                 </div>
 
-                <div class="col-6">
+                <div class="col-6 py-0">
                     <div class="field grid formgrid">
-                        <div class="col-6">
+                        <div class="col-6 py-0">
                             <div class="field-radiobutton">
                                 <p-radioButton name="gender" value="Male" [formControl]="createService.personalForm.controls.gender" id="male"></p-radioButton>
                                 <label for="male">Male</label>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 py-0">
                             <div class="field-radiobutton">
                                 <p-radioButton name="gender" value="Female" [formControl]="createService.personalForm.controls.gender" id="female"></p-radioButton>
                                 <label for="female">Female</label>
@@ -75,8 +74,8 @@
     <div class="col-12 md:col-6">
 		<div class="card p-fluid">
             <h5>Address</h5>
-            <div class="p-formgrid grid">
-                <div class="field col-12">
+            <div class="p-formgrid grid pt-4">
+                <div class="field col-12 py-0">
                     <label htmlFor="country">Country</label>
                     <p-dropdown 
                         id="country"
@@ -99,39 +98,41 @@
                     </p-dropdown>
 				</div>
 
-                <div class="field col-4">
+                <div class="field col-4 py-0">
                     <label htmlFor="city">City</label>
                     <input pInputText id="city" type="text" 
                         [formControl]="createService.personalForm.controls.address.controls.city"/>
                 </div>
 
                 
-                <div class="field col-4">
+                <div class="field col-4 py-0">
                     <label htmlFor="district">District</label>
                     <input pInputText id="district" type="text" 
                         [formControl]="createService.personalForm.controls.address.controls.district"/>
                 </div>
 
-                <div class="field col-4">
+                <div class="field col-4 py-0">
                     <label htmlFor="postCode">Postal Code</label>
-                    <input pInputText id="postCode" type="text" 
+                    <p-inputMask 
+                        id="postCode"
+                        mask="99-999"
                         [formControl]="createService.personalForm.controls.address.controls.postCode"
-                        mask="00-000" [showMaskTyped] = "true"/>
+                        placeholder="00-000" />
                 </div>
                 
-                <div class="field col-6">
+                <div class="field col-6 py-0">
                     <label htmlFor="street">Street</label>
                     <input pInputText id="street" type="text" 
                         [formControl]="createService.personalForm.controls.address.controls.street"/>
                 </div>
 
-                <div class="field col-3">
+                <div class="field col-3 py-0">
                     <label htmlFor="houseNumber">House Number</label>
                     <input pInputText id="houseNumber" type="text" 
                         [formControl]="createService.personalForm.controls.address.controls.houseNumber"/>
                 </div>
 
-                <div class="field col-3">
+                <div class="field col-3 py-0">
                     <label htmlFor="flatNumber">Flat Number</label>
                     <input pInputText id="flatNumber" type="text" 
                         [formControl]="createService.personalForm.controls.address.controls.flatNumber"/>

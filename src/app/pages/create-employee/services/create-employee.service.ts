@@ -6,6 +6,8 @@ import { Gender } from 'src/app/services/api';
 export class EmsCreateEmployeeService {
   constructor() { }
 
+  public imageSrc: any = '';
+
   public personalForm = new FormGroup({
     name: new FormControl<string>("", Validators.required),
     surname: new FormControl<string>("", Validators.required),
@@ -14,7 +16,7 @@ export class EmsCreateEmployeeService {
     birthdate: new FormControl<Date | null>(null),
     gender: new FormControl<Gender>(Gender.Male),
     phoneNumber: new FormControl(null),
-    email: new FormControl(null),
+    email: new FormControl(null, Validators.email),
     address: new FormGroup({
       country:  new FormControl<{ name: string, code: string }>(null),
       city:  new FormControl<string | null>(null),

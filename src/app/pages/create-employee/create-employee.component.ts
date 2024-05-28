@@ -3,6 +3,7 @@ import { MenuItem } from 'primeng/api';
 import { EmsCreateEmployeeService } from './services/create-employee.service';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { validateAllFormFields } from 'src/app/shared/helpers/form.helpers';
 
 @Component({
   selector: 'app-create-employee',
@@ -22,8 +23,11 @@ export class EmsCreateEmployeeComponent {
           this.active += 1;
         }
         else{
-
+          
         }
+    }
+    else {
+      validateAllFormFields(this.items[this.active].formGroup);
     }
   }
 

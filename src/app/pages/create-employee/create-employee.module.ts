@@ -20,7 +20,8 @@ import { EmsPersonalDataComponent } from './pages/personal-data/personal-data.co
 import { EmsContractsComponent } from './pages/contracts/contracts.component';
 import { NgpImagePickerModule } from 'ngp-image-picker';
 import { RadioButtonModule } from 'primeng/radiobutton';
-import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 
 @NgModule({
@@ -43,13 +44,14 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 	NgpImagePickerModule,
 	RadioButtonModule,
 	ReactiveFormsModule,
-	NgxMaskDirective, NgxMaskPipe
+	MessagesModule,
+	MessageModule
   ],
   declarations: [
 	EmsCreateEmployeeComponent,
 	EmsPersonalDataComponent,
 	EmsContractsComponent
   ],
-  providers: [EmsCreateEmployeeService, provideNgxMask()]
+  providers: [EmsCreateEmployeeService]
 })
 export class EmsCreateEmployeeModule { }

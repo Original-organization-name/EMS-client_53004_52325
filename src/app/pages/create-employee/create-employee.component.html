@@ -1,12 +1,12 @@
 
-<div class="card grid">
-	<div class="col-1">
-		<p-button label="Back" (onClick)="prevPage()" icon="pi pi-angle-left"></p-button>
+<div class="card grid p-0">
+	<div class="col-1 flex align-items-center">
+		<p-button label="Back" (onClick)="prevPage()" icon="pi pi-angle-left" [disabled]="active == 0"></p-button>
 	</div>
 
-    <p-steps class="col-10" #steps [activeIndex]="active" [model]="items" />
+    <p-steps class="col-10 pt-5 pb-3" #steps [activeIndex]="active" [model]="items" />
 
-	<div class="col-1">
+	<div class="col-1 flex align-items-center">
 		<p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"></p-button>
 	</div>
 </div>
