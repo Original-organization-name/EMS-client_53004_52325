@@ -22,6 +22,10 @@ import { NgpImagePickerModule } from 'ngp-image-picker';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { EmsMedicalExamsComponent } from './pages/medical-exams/medical-exams.component';
+import { EmsDatePeriodPickerComponent } from 'src/app/shared/components/date-period-picker/date-period-picker.component';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -45,12 +49,16 @@ import { MessageModule } from 'primeng/message';
 	RadioButtonModule,
 	ReactiveFormsModule,
 	MessagesModule,
-	MessageModule
+	MessageModule,
+	SelectButtonModule,
+	EmsDatePeriodPickerComponent,
+	TableModule
   ],
   declarations: [
 	EmsCreateEmployeeComponent,
 	EmsPersonalDataComponent,
-	EmsContractsComponent
+	EmsContractsComponent,
+	EmsMedicalExamsComponent
   ],
   providers: [EmsCreateEmployeeService]
 })

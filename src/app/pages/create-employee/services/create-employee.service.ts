@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Gender } from 'src/app/services/api';
+import { Gender, MedicalExamination, PaymentType } from 'src/app/services/api';
 
 @Injectable()
 export class EmsCreateEmployeeService {
   constructor() { }
 
   public imageSrc: any = '';
+
+  public medicalExams = signal<MedicalExamination[]>([]);
 
   public personalForm = new FormGroup({
     name: new FormControl<string>("", Validators.required),
@@ -25,7 +27,10 @@ export class EmsCreateEmployeeService {
       street:  new FormControl<string | null>(null),
       houseNumber:  new FormControl<string | null>(null),
       flatNumber:  new FormControl<string | null>(null)
-    })
+    }),
+    paymentMethod: new FormGroup({
+      type:  new FormControl<PaymentType>('Card'),
+      bankAccount:  new FormControl<string | null>(null)
+    }),
   });
-
 }

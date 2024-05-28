@@ -33,7 +33,10 @@
 			<div class="p-formgrid grid pt-4">
                 <div class="field col-6 py-0">
                     <label for="calendar">Birthdate</label>
-                    <p-calendar inputId="calendar" [formControl]="createService.personalForm.controls.birthdate" [showIcon]="true"></p-calendar>
+                    <p-calendar 
+                        inputId="calendar" 
+                        [formControl]="createService.personalForm.controls.birthdate" 
+                        [showIcon]="true"></p-calendar>
                 </div>
 
                 <div class="field col-6 py-0">
@@ -103,7 +106,6 @@
                     <input pInputText id="city" type="text" 
                         [formControl]="createService.personalForm.controls.address.controls.city"/>
                 </div>
-
                 
                 <div class="field col-4 py-0">
                     <label htmlFor="district">District</label>
@@ -139,5 +141,30 @@
                 </div>
             </div>
 		</div>
+
+        <div class="card p-fluid">
+            <h5>Payment Method</h5>
+            <div class="p-formgrid grid pt-4">
+                <div class="field col-4 py-0">
+                    
+                    <label htmlFor="paymentType">Type</label>
+                    <p-selectButton 
+                        id="paymentType"
+                        [options]="paymentTypeOptions" 
+                        [formControl]="createService.personalForm.controls.paymentMethod.controls.type"
+                        optionLabel="label" 
+                        optionValue="value" />
+                </div>
+
+                <div class="field col-8 py-0">
+                    <label htmlFor="iban">IBAN</label>
+                    <p-inputMask 
+                        id="iban"
+                        mask="aa99 **** 9999 9999 9999? 9999 9999 9999 99"
+                        [formControl]="createService.personalForm.controls.paymentMethod.controls.bankAccount"
+                        placeholder="PL00 0000 0000 0000 0000 0000" />
+                </div>
+            </div>
+        </div>
 	</div>
 </div>
