@@ -22,6 +22,7 @@ import { NgpImagePickerModule } from 'ngp-image-picker';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { MessageModule } from 'primeng/message';
 	RadioButtonModule,
 	ReactiveFormsModule,
 	MessagesModule,
-	MessageModule
+	MessageModule,
+	SelectButtonModule,
   ],
   declarations: [
 	EmsCreateEmployeeComponent,
