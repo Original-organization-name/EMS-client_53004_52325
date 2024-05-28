@@ -13,12 +13,12 @@ export class EmsCreateEmployeeComponent {
   protected createService = inject(EmsCreateEmployeeService);
   protected router = inject(Router);
   protected rout = inject(ActivatedRoute);
-  items!: Array<MenuItem & {formGroup: FormGroup}>;
+  items!: Array<MenuItem & {formGroup?: FormGroup}>;
 
-  protected active: number = 0;
+  protected active: number = 2;
 
   nextPage() {
-    if (this.items[this.active].formGroup.valid) {
+    if (!this.items[this.active].formGroup || this.items[this.active].formGroup.valid) {
         if(this.active + 1 < this.items.length){
           this.active += 1;
         }
@@ -50,19 +50,15 @@ export class EmsCreateEmployeeComponent {
       },
       { 
         label: 'Medical examinations',
-        formGroup: this.createService.personalForm
       },
       { 
         label: 'Skills', 
-        formGroup: this.createService.personalForm
       },
       { 
         label: 'Education', 
-        formGroup: this.createService.personalForm
       },
       { 
         label: 'Employment history', 
-        formGroup: this.createService.personalForm 
       },
     ];
   }

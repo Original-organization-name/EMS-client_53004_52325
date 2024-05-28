@@ -1,0 +1,20 @@
+
+<div class="p-formgrid grid pt-4">
+    <div class="field col-6 py-0">
+        <label for="calendarStart">From</label>
+        <p-calendar 
+            inputId="calendarEnd" 
+            [formControl]="fromControl"
+            [maxDate]="toControl.value" 
+            [showIcon]="true"></p-calendar>
+    </div>
+
+    <div class="field col-6 py-0">
+        <label for="calendarStart">To</label>
+        <p-calendar 
+            inputId="calendarEnd" 
+            [formControl]="toControl" 
+            [minDate]="fromControl.value" 
+            [showIcon]="true"></p-calendar>
+    </div>
+</div>
