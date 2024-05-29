@@ -11,13 +11,8 @@
  */
 
 
-export interface Address { 
-    countryCode?: string | null;
-    city?: string | null;
-    district?: string | null;
-    postCode?: string | null;
-    street?: string | null;
-    houseNumber?: string | null;
-    flatNumber?: string | null;
+export interface OccupationCodeItem { 
+    code: string;
+    value: string;
 }
 

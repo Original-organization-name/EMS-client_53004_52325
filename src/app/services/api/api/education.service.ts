@@ -19,7 +19,7 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
-import { EducationDto } from '../model/educationDto';
+import { Education } from '../model/education';
 // @ts-ignore
 import { EducationModel } from '../model/educationModel';
 
@@ -95,14 +95,14 @@ export class EducationService {
 
     /**
      * @param employeeId 
-     * @param educationDto 
+     * @param education 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public addEducation(employeeId: string, educationDto?: EducationDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<EducationModel>;
-    public addEducation(employeeId: string, educationDto?: EducationDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EducationModel>>;
-    public addEducation(employeeId: string, educationDto?: EducationDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EducationModel>>;
-    public addEducation(employeeId: string, educationDto?: EducationDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public addEducation(employeeId: string, education?: Education, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<EducationModel>;
+    public addEducation(employeeId: string, education?: Education, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EducationModel>>;
+    public addEducation(employeeId: string, education?: Education, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EducationModel>>;
+    public addEducation(employeeId: string, education?: Education, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (employeeId === null || employeeId === undefined) {
             throw new Error('Required parameter employeeId was null or undefined when calling addEducation.');
         }
@@ -160,7 +160,7 @@ export class EducationService {
         return this.httpClient.request<EducationModel>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: educationDto,
+                body: education,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,

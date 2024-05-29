@@ -11,13 +11,10 @@
  */
 
 
-export interface Address { 
-    countryCode?: string | null;
-    city?: string | null;
-    district?: string | null;
-    postCode?: string | null;
-    street?: string | null;
-    houseNumber?: string | null;
-    flatNumber?: string | null;
-}
+export type SalaryType = 'Monthly' | 'Hourly';
+
+export const SalaryType = {
+    Monthly: 'Monthly' as SalaryType,
+    Hourly: 'Hourly' as SalaryType
+};
 

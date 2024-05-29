@@ -12,7 +12,7 @@
 import { SchoolType } from './schoolType';
 
 
-export interface EducationDto { 
+export interface Education { 
     schoolName: string;
     type: SchoolType;
     start: string;
@@ -20,7 +20,7 @@ export interface EducationDto {
     degree?: string | null;
     occupation?: string | null;
 }
-export namespace EducationDto {
+export namespace Education {
 }
 
 

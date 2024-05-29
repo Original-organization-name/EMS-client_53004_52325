@@ -4,6 +4,7 @@ import { EmsCreateEmployeeService } from './services/create-employee.service';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { validateAllFormFields } from 'src/app/shared/helpers/form.helpers';
+import { CreateEmployeeModel, EmployeesService } from 'src/app/services/api';
 
 @Component({
   selector: 'app-create-employee',
@@ -11,6 +12,7 @@ import { validateAllFormFields } from 'src/app/shared/helpers/form.helpers';
 })
 export class EmsCreateEmployeeComponent {
   protected createService = inject(EmsCreateEmployeeService);
+  protected employeeService = inject(EmployeesService);
   protected router = inject(Router);
   protected rout = inject(ActivatedRoute);
   items!: Array<MenuItem & {formGroup?: FormGroup}>;
@@ -30,12 +32,43 @@ export class EmsCreateEmployeeComponent {
       validateAllFormFields(this.items[this.active].formGroup);
     }
   }
-
   
   prevPage() {
     if(this.active - 1 >= 0){
       this.active -= 1;
     }
+  }
+  
+  saveForm() {
+
+    if(!this.createService.personalForm.valid){
+      this.active = 0;
+      validateAllFormFields(this.createService.personalForm);
+    }
+    else{
+      const employeeData = this.createService.personalForm.getRawValue();
+      const request: CreateEmployeeModel = {
+        employee: {
+          name: employeeData.name,
+          surname: employeeData.surname,
+          pesel: employeeData.pesel,
+          nip: employeeData.nip,
+          birthdate: employeeData.birthdate?.toISOString(),
+          gender: employeeData.gender,
+          address: employeeData.address,
+          phoneNumber: employeeData.phoneNumber,
+          email: employeeData.email,
+          paymentMethod: employeeData.paymentMethod,
+        },
+        medicalExaminations: this.createService.medicalExams(),
+      } 
+
+      const add$ = this.employeeService
+        .addEmployee(request)
+        .subscribe(data => {
+          
+        })
+      }
   }
 
   ngOnInit() {

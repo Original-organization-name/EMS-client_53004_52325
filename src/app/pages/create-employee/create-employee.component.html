@@ -6,9 +6,16 @@
 
     <p-steps class="col-10 pt-5 pb-3" #steps [activeIndex]="active" [model]="items" />
 
-	<div class="col-1 flex align-items-center">
+	<div *ngIf="active != items.length -1 else saveButton"
+	 	class="col-1 flex align-items-center">
 		<p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"></p-button>
 	</div>
+
+	<ng-template #saveButton>
+		<div class="col-1 flex align-items-center">
+			<p-button label="Save" severity="success" icon="pi pi-check" iconPos="right" (onClick)="saveForm()"></p-button>
+		</div>
+	</ng-template>
 </div>
 
 <ng-container [ngSwitch]="active">
