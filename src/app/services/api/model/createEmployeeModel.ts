@@ -17,7 +17,7 @@ import { Contract } from './contract';
 
 export interface CreateEmployeeModel { 
     employee: Employee;
-    contract?: Contract;
+    contract?: Contract | null;
     medicalExaminations?: Array<MedicalExamination> | null;
     trainings?: Array<Training> | null;
 }

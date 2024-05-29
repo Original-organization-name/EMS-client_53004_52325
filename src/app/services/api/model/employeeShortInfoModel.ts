@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { SalaryType } from './salaryType';
 
 
 export interface EmployeeShortInfoModel { 
@@ -16,11 +17,14 @@ export interface EmployeeShortInfoModel {
     name: string;
     surname: string;
     pesel?: string | null;
-    employmentDate: string;
-    salary: number;
-    salaryType: string;
-    contractType: string;
-    fteDenominator: number;
-    fteNumerator: number;
+    employmentDate?: string | null;
+    terminationDate?: string | null;
+    salary?: number | null;
+    salaryType?: SalaryType | null;
+    fteDenominator?: number | null;
+    fteNumerator?: number | null;
 }
+export namespace EmployeeShortInfoModel {
+}
+
 
