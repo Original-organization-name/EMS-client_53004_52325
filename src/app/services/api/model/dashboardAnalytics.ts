@@ -17,6 +17,8 @@ export interface DashboardAnalytics {
     addInLastMonth: number;
     totalPayroll: number;
     recentAddedEmployees?: Array<EmployeeShortInfoModel> | null;
+    activeContractsCount: number;
+    expiresContractCount: number;
     nearExpiryContract?: Array<string> | null;
 }
 

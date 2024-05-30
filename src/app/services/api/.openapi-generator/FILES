@@ -6,6 +6,7 @@ api/contract.service.ts
 api/dashboard.service.ts
 api/education.service.ts
 api/employees.service.ts
+api/images.service.ts
 api/medicalExaminationDict.service.ts
 api/medicalExaminations.service.ts
 api/occupationDict.service.ts

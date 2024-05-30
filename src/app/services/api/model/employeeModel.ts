@@ -26,6 +26,7 @@ export interface EmployeeModel {
     phoneNumber?: string | null;
     email?: string | null;
     paymentMethod?: PaymentMethod | null;
+    imageFileName?: string | null;
 }
 export namespace EmployeeModel {
 }

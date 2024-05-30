@@ -61,6 +61,7 @@ export class EmsCreateEmployeeComponent {
           paymentMethod: employeeData.paymentMethod,
         },
         medicalExaminations: this.createService.medicalExams(),
+        imageBase64: this.createService.imageSrc
       } 
 
       const add$ = this.employeeService
