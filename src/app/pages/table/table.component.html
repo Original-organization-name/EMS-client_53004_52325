@@ -14,31 +14,57 @@
 				<tr>
 					<th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
 					<th pSortableColumn="position">Position <p-sortIcon field="position"></p-sortIcon></th>
-					<th pSortableColumn="startContractDate">Start of Contract <p-sortIcon field="startContractDate"></p-sortIcon></th>
-					<th pSortableColumn="endContractDate">End of Contract <p-sortIcon field="endContractDate"></p-sortIcon></th>
-					<th pSortableColumn="rate">Salary <p-sortIcon field="rate"></p-sortIcon></th>
+					<th pSortableColumn="contractType">Contract Type<p-sortIcon field="contractType"></p-sortIcon></th>
+					<th pSortableColumn="ContractStartDate">Start of Contract<p-sortIcon field="ContractStartDate"></p-sortIcon></th>
+					<th pSortableColumn="terminationDate">End of Contract <p-sortIcon field="terminationDate"></p-sortIcon></th>
+					<th pSortableColumn="salary">Salary<p-sortIcon field="salary"></p-sortIcon></th>
+					<th>BHP training status</th>
+					<th>Medical exams status</th>
 				</tr>
 			</ng-template>
             <ng-template pTemplate="body" let-employee>
 					<tr>
-						<td>
-							<img vsrc="/src/assets/layout/images/banner-primeblocks.png" width="32" style="vertical-align: middle"/>
-							{{employee.fullName}} <br>
-							{{employee.pesel}}
+						<td class="flex align-items-start align-items-center">
+							<img [src]="getImagePath(employee.imageName)" width="32" style="vertical-align: middle"/>
+							<div>
+								<span class="image-text ml-2">{{employee.name}} {{employee.surname}}</span>
+								<span *ngIf="employee.pesel" class="image-text ml-2">{{employee.pesel}}</span>
+							</div>
 						</td>
 						<td>
-							
-							<span>{{employee.jobPosition}}</span>
+							<span>{{employee.position}}</span>
 						</td>
 						<td>
-							{{employee.startContractDate | date: 'dd.MM.yyyy'}}
+                            <ng-container *ngIf="!employee.contractType else contractDetails">
+                                -
+                            </ng-container>
+                            
+                            <ng-template #contractDetails>
+                                {{employee.contractType}}<br>
+                                {{employee.fteNumerator}}/{{employee.fteDenominator}}
+                            </ng-template>
+                        </td>
+						<td>
+							{{employee.contractStartDate | date: 'dd.MM.yyyy'}}
 						</td>
                         <td>
-							{{employee.endContractDate | date: 'MM.dd.yyyy'}}
+							{{employee.terminationDate | date: 'MM.dd.yyyy'}}
+							<span [class]="'employee-badge status-' + getStatusByDate(employee.terminationDate)">{{getStatusByDate(employee.terminationDate)}}</span>
 						</td>
 						<td>
-							{{employee.salary | currency:'USD':'symbol'}} <br>
-							per {{ employee.salaryType }}
+							<ng-container *ngIf="!employee.salary else salaryInfo">
+                                -
+                            </ng-container>
+                            
+                            <ng-template #salaryInfo>
+                                {{employee.salary | currency:'USD':'symbol'}}<br>
+                                {{employee.salaryType}}
+                            </ng-template>
+						</td>
+						<td>
+							<span [class]="'employee-badge status-' + employee.bhpStatus">{{employee.bhpStatus}}</span>
+						</td>
+						<td>
 						</td>
 					</tr>
 				</ng-template>

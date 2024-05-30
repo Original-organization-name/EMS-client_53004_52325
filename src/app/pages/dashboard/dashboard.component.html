@@ -84,7 +84,7 @@
                             </ng-container>
                             
                             <ng-template #salaryInfo>
-                                {{employee.salary}}<br>
+                                {{employee.salary | currency:'USD':'symbol'}}<br>
                                 {{employee.salaryType}}
                             </ng-template>
                         </td>

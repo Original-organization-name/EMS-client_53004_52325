@@ -22,6 +22,8 @@ import { Observable }                                        from 'rxjs';
 import { CreateEmployeeModel } from '../model/createEmployeeModel';
 // @ts-ignore
 import { EmployeeModel } from '../model/employeeModel';
+// @ts-ignore
+import { EmployeeTableInfo } from '../model/employeeTableInfo';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -171,9 +173,9 @@ export class EmployeesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getAllEmployees(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<EmployeeModel>>;
-    public getAllEmployees(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<EmployeeModel>>>;
-    public getAllEmployees(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<EmployeeModel>>>;
+    public getAllEmployees(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<EmployeeTableInfo>>;
+    public getAllEmployees(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<EmployeeTableInfo>>>;
+    public getAllEmployees(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<EmployeeTableInfo>>>;
     public getAllEmployees(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
@@ -215,7 +217,7 @@ export class EmployeesService {
         }
 
         let localVarPath = `/api/employees`;
-        return this.httpClient.request<Array<EmployeeModel>>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<Array<EmployeeTableInfo>>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,

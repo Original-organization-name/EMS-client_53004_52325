@@ -12,3 +12,29 @@ $gutter: 1rem; //for primeflex grid system
 @import "assets/demo/styles/flags/flags.css";
 @import "assets/demo/styles/badges.scss";
 @import "assets/demo/styles/code.scss";
+
+.employee-badge {
+    border-radius: var(--border-radius);
+    padding: .25em .5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: .3px;
+}
+
+.employee-badge {
+    &.status-Actual {
+        background: #C8E6C9;
+        color: #256029;
+    }
+
+    &.status-Ending {
+        background: #FFD8B2;
+        color: #805B36;
+    }
+
+    &.status-Ended {
+        background: #FFCDD2;
+        color: #C63737;
+    }
+}

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { EmployeeListData } from 'src/app/modules/employee-list-data/employee-list-data.component';
+import { Component, inject } from '@angular/core';
+import * as moment from 'moment';
+import { EmployeeTableInfo, EmployeesService, Status } from 'src/app/services/api';
+import { environment } from 'src/environments/environment';
 
 let startContractDate: Date = new Date(2024, 4, 17);
 
@@ -10,29 +12,35 @@ let startContractDate: Date = new Date(2024, 4, 17);
 })
   
 export class EsmTableComponent {
+  private apiService = inject(EmployeesService);
+  protected employees: EmployeeTableInfo [] = []; 
   
-  employees: EmployeeListData [] = [{
-    fullName: 'Vova Yakoren',
-    pesel: "03281500978",
-    jobPosition: 'C# development',
-    startContractDate: new Date(2021, 12, 12),
-    endContractDate: new Date(2021, 12, 12),
-    salary: 400,
-    salaryType: "month",
-    fteNumerator: 1,
-    fteDenumerator: 1,
-  },
+
+  ngOnInit(): void {
+    const get$ = this.apiService
+    .getAllEmployees()
+    .subscribe(data =>
     {
-    fullName: 'Lol Lmao',
-    pesel: "03281500978",
-    jobPosition: 'C# development',
-    startContractDate: new Date(2021, 12, 12),
-    endContractDate: new Date(2021, 1, 12),
-    salary: 300,
-    salaryType: "hour",
-    fteNumerator: 1,
-    fteDenumerator: 1,
-    }]; 
-  
+      this.employees = data;
+      get$.unsubscribe();
+    })
+  }
+
+  public getImagePath(imageName: string){
+    return imageName ? `${environment.apiPath}/api/images/${imageName}` : 'assets/images/employee.png';
+  }
+
+  public getStatusByDate(date?: string){
+    if(moment().isAfter(date))
+    {
+      return Status.Ended;
+    }
+
+    if(moment().add(14, 'd').isSameOrBefore(date)){
+      return Status.Actual;
+    }
+
+    return Status.Ending;
+  }
 }
 
