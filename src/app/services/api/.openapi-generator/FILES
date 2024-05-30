@@ -23,6 +23,7 @@ index.ts
 model/address.ts
 model/contract.ts
 model/contractModel.ts
+model/contractType.ts
 model/createEmployeeModel.ts
 model/dashboardAnalytics.ts
 model/dictionaryItem.ts

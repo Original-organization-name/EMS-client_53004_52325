@@ -1,15 +1,17 @@
 import { FormControl } from "@angular/forms"
-import { Gender } from "src/app/services/api";
+import { ContractType, Gender, SalaryType } from "src/app/services/api";
 
-export type EmployeeForm = {
-    name: FormControl<string>;
-    surname: FormControl<string>;
-    pesel: FormControl<string | null>;
-    nip: FormControl<string | null>;
-    birthdate: FormControl<Date | null>;
-    gender: FormControl<Gender>;
-    address: FormControl<>;
-    phoneNumber: FormControl<string | null>;
-    email: FormControl<string | null>;
-    paymentMethod: FormControl<>;
+export type ContractForm = {
+    employmentDate: FormControl<Date>;
+    conclusionDate: FormControl<Date>;
+    positionItemId: FormControl<string | null>;
+    workplaceItemId: FormControl<string | null>;
+    occupationCodeItemId: FormControl<string | null>;
+    startDate: FormControl<Date>;
+    terminationDate: FormControl<Date | null>;
+    fteNumerator: FormControl<number>;
+    fteDenominator: FormControl<number>;
+    salary: FormControl<number>;
+    salaryType: FormControl<SalaryType>;
+    contractType: FormControl<ContractType>;
 }

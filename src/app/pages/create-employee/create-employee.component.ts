@@ -15,21 +15,18 @@ export class EmsCreateEmployeeComponent {
   protected employeeService = inject(EmployeesService);
   protected router = inject(Router);
   protected rout = inject(ActivatedRoute);
-  items!: Array<MenuItem & {formGroup?: FormGroup}>;
+  items!: Array<MenuItem & {getFormGroup?: () => FormGroup | undefined}>;
 
   protected active: number = 1;
 
   nextPage() {
-    if (!this.items[this.active].formGroup || this.items[this.active].formGroup.valid) {
+    if (!this.items[this.active].getFormGroup || this.items[this.active].getFormGroup()?.valid != false) {
         if(this.active + 1 < this.items.length){
           this.active += 1;
         }
-        else{
-          
-        }
     }
-    else {
-      validateAllFormFields(this.items[this.active].formGroup);
+    else if(this.items[this.active].getFormGroup){
+      validateAllFormFields(this.items[this.active].getFormGroup());
     }
   }
   
@@ -40,13 +37,14 @@ export class EmsCreateEmployeeComponent {
   }
   
   saveForm() {
-
     if(!this.createService.personalForm.valid){
       this.active = 0;
       validateAllFormFields(this.createService.personalForm);
     }
     else{
       const employeeData = this.createService.personalForm.getRawValue();
+      const contractDate = this.createService.contractForm?.getRawValue();
+      
       const request: CreateEmployeeModel = {
         employee: {
           name: employeeData.name,
@@ -64,10 +62,27 @@ export class EmsCreateEmployeeComponent {
         imageBase64: this.createService.imageSrc
       } 
 
+      if(contractDate){
+        request.contract = {
+          employmentDate: contractDate.employmentDate.toISOString(),
+          conclusionDate: contractDate.conclusionDate.toISOString(),
+          positionItemId: contractDate.positionItemId,
+          workplaceItemId: contractDate.workplaceItemId,
+          occupationCodeItemId: contractDate.occupationCodeItemId,
+          startDate: contractDate.startDate.toISOString(),
+          terminationDate: contractDate.terminationDate?.toISOString(),
+          fteNumerator: contractDate.fteNumerator,
+          fteDenominator: contractDate.fteDenominator,
+          salary: contractDate.salary,
+          salaryType: contractDate.salaryType,
+          contractType: contractDate.contractType,
+        }
+      }
+
       const add$ = this.employeeService
         .addEmployee(request)
         .subscribe(data => {
-          
+          add$.unsubscribe();
         })
       }
   }
@@ -76,11 +91,11 @@ export class EmsCreateEmployeeComponent {
     this.items = [
       { 
         label: 'Personal data', 
-        formGroup: this.createService.personalForm
+        getFormGroup: () => this.createService.personalForm
       },
       { 
         label: 'Contracts', 
-        formGroup: this.createService.personalForm
+        getFormGroup: () => this.createService.contractForm
       },
       { 
         label: 'Medical examinations',
