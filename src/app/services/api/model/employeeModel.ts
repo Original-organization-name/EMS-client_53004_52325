@@ -21,11 +21,11 @@ export interface EmployeeModel {
     pesel?: string | null;
     nip?: string | null;
     birthdate?: string | null;
-    gender: Gender;
-    address: Address;
+    gender?: Gender | null;
+    address?: Address | null;
     phoneNumber?: string | null;
     email?: string | null;
-    paymentMethod: PaymentMethod;
+    paymentMethod?: PaymentMethod | null;
 }
 export namespace EmployeeModel {
 }

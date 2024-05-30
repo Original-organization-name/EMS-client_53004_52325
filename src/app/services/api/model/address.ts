@@ -18,6 +18,6 @@ export interface Address {
     postCode?: string | null;
     street?: string | null;
     houseNumber?: string | null;
-    apartmentNumber?: string | null;
+    flatNumber?: string | null;
 }
 
