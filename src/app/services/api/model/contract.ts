@@ -23,8 +23,8 @@ export interface Contract {
     fteNumerator: number;
     fteDenominator: number;
     salary: number;
-    salaryType: SalaryType;
-}
+    paymentSalaryTypeOptions: SalaryType;
+    }
 export namespace Contract {
 }
 
