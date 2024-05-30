@@ -1,6 +1,7 @@
 import { FormGroup, FormControl, FormArray } from "@angular/forms";
 
-export function validateAllFormFields(formGroup: FormGroup) {
+export function validateAllFormFields(formGroup: FormGroup | undefined) {
+  if(formGroup){
     Object.keys(formGroup.controls).forEach((field) => {
       const control = formGroup.get(field);
       if (control instanceof FormControl) {
@@ -13,3 +14,4 @@ export function validateAllFormFields(formGroup: FormGroup) {
       }
     });
   }
+}

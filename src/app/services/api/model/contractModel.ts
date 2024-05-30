@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import { SalaryType } from './salaryType';
+import { ContractType } from './contractType';
 
 
 export interface ContractModel { 
@@ -28,6 +29,7 @@ export interface ContractModel {
     fteDenominator: number;
     salary: number;
     salaryType: SalaryType;
+    contractType: ContractType;
 }
 export namespace ContractModel {
 }

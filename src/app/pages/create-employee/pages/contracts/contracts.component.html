@@ -3,15 +3,12 @@
 		<div class="card p-fluid">
             <h5>Essential</h5>
             <div class="p-formgrid grid">
-                <!-- Изменить названия переменых на нужные -->
-                <!-- Дата начала работы -->
 				<div class="col-6">
 					<div class="field">
-                        <label htmlFor="employmentDate">Date of employment</label>
-                        <p-calendar inputId="calendar" [formControl]="createService.contractForm.controls.employmentDate" [showIcon]="true"></p-calendar>
+                        <label for="employmentDate">Date of employment</label>
+                        <p-calendar inputId="employmentDate" [formControl]="formGroup.controls.employmentDate" [showIcon]="true"></p-calendar>
                     </div>
 				</div>
-                <!-- Позиция, выплывающим списком -->
                 <div class="col-6">
 					<div class="field">
                         <label htmlFor="position">Position</label>
@@ -24,7 +21,7 @@
                             [filter]="true"
                             filterBy="value" 
                             [showClear]="true"
-                            [formControl]="createService.contractForm.controls.positionItemId">
+                            [formControl]="formGroup.controls.positionItemId">
                         </p-dropdown>                    
                     </div>
 				</div>
@@ -37,10 +34,10 @@
                             placeholder="Select the occupation code" 
                             optionLabel="code"
                             [filter]="true"
-                            filterBy="value" 
+                            filterBy="code" 
                             optionValue="code"
                             [showClear]="true"
-                            [formControl]="createService.contractForm.controls.occupationCodeItemId"
+                            [formControl]="formGroup.controls.occupationCodeItemId"
                         >
                             <ng-template let-occupationItem pTemplate="item">
                                 <div class="flex align-items-center">
@@ -56,8 +53,9 @@
                 <div class="col-8">
                     <div class="field">
                         <label>Job description</label>
-                        <input class="p-inputtextarea p-inputtext" 
-                            [value]="findOccupationCode(createService.contractForm.controls.occupationCodeItemId.value)?.value" disabled="true" spellcheck="true"/>
+                        <input pInputText 
+                            [value]="findOccupationCode(formGroup.controls.occupationCodeItemId.value)?.value" 
+                            [disabled]="true"/>
                     </div>
                 </div>
             </div>
@@ -68,18 +66,20 @@
                 <h5>Contract period</h5>
                 <div class="p-formgrid grid pt-4 mb-4">
                     <div class="field col-4 py-0">
-                        <label for="calendar">Start date</label>
-                        <p-calendar inputId="calendar" [formControl]="createService.contractForm.controls.startDate" [showIcon]="true"></p-calendar>
+                        <label for="startDate">Start date</label>
+                        <p-calendar inputId="startDate" [formControl]="formGroup.controls.startDate" [showIcon]="true"
+                            [maxDate]="formGroup.controls.terminationDate.value"></p-calendar>
                     </div>
                     <div class="field col-4 py-0">
-                        <label for="calendar">Termination date</label>
-                        <p-calendar inputId="calendar" [formControl]="createService.contractForm.controls.terminationDate" [showIcon]="true"></p-calendar>
+                        <label for="terminationDate">Termination date</label>
+                        <p-calendar inputId="terminationDate" [formControl]="formGroup.controls.terminationDate" [showIcon]="true"
+                            [minDate]="formGroup.controls.startDate.value"></p-calendar>
                     </div>
                     <div class="field col-4 py-0">
                         <label for="calendar">Date of sign</label>
-                        <p-calendar inputId="calendar" [formControl]="createService.contractForm.controls.conclusionDate" [showIcon]="true"></p-calendar>
+                        <p-calendar inputId="calendar" [formControl]="formGroup.controls.conclusionDate" [showIcon]="true"></p-calendar>
                     </div>
-<!-- Contracts type: list - 'Empty' -->
+
                     <div class="field col-6 py-0">
                         <div class="field">
                         <label htmlFor="contractsType">Type</label>
@@ -88,61 +88,64 @@
                             [options]="contractsType" 
                             placeholder="Select the contract type" 
                             optionLabel="label"
-                            [formControl]="createService.contractForm.controls.contractsType">
+                            optionValue="value"
+                            [formControl]="formGroup.controls.contractType">
                         </p-dropdown>                    
                     </div>
                 </div>
         
                 <div class="field col-6 py-0">
-                    <label htmlFor="workPlace">Work place</label>
+                    <label htmlFor="workplace">Workplace</label>
                     <p-dropdown 
-                        id="workPlace"
-                        [options]="places" 
-                        placeholder="Select a city" 
+                        id="workplace"
+                        [options]="workplaces" 
+                        placeholder="Select workplace" 
                         [filter]="true"
                         [showClear]="true"
                         optionLabel="value"
-                        [formControl]="createService.contractForm.controls.workPlace">
+                        filterBy="value"
+                        optionValue="id"
+                        [formControl]="formGroup.controls.workplaceItemId">
                     </p-dropdown>                    
                 </div>
             </div>
         </div>
 	</div>
 
-    <div class="col-6 md:col-3">
-    </div>
+<div class="col-6 md:col-3">
+</div>
 
-   <div class="col-12 md:col-6">
-        <div class="card p-fluid">
-            <h5>Salary information</h5>
-            <div class="p-formgrid grid pt-4 ">
-                <div class="field col-3 py-0 ml-3">
-                    <label class="ml-6">Full time</label>
-                    <input pInputText id="First half" type="text"/>
-                </div>
-                <h1>/</h1>
-                <div class="field col-3 py-0">
-                    <label>equipment</label>
-                    <input pInputText id="Second half" type="text"/>
-                </div>
-                <div class="field col-5 py-0">
-                    <label htmlFor="Salary">Salary</label>
-                    <input pInputText id="Salary" type="number" [formControl]="createService.contractForm.controls.salary" />
+<div class="col-12 md:col-6">
+    <div class="card p-fluid">
+        <h5>Salary information</h5>
+        <div class="p-formgrid grid pt-4">
+            <div class="field col-4 py-0">
+                <label>Full time equipment</label>
+                <div class="p-formgrid grid align-items-center">
+                    <div class="col">
+                        <input pInputText [formControl]="formGroup.controls.fteNumerator" type="number"/>
+                    </div>
+                    <p>/</p>
+                    <div class="col">
+                        <input pInputText [formControl]="formGroup.controls.fteDenominator" type="number"/>
+                    </div>
                 </div>
             </div>
-            <div class="col-12">
-                        <div class="p-formgrid grid pt-4">
-                            <div class="field col-12">
-                                <label htmlFor="paymentType">Salary payment Type</label>
-                                <p-selectButton 
-                                    id="paymentType"
-                                    [options]="paymentSalaryTypeOptions" 
-                                    [formControl]="createService.contractForm.controls.paymentSalaryTypeOptions"
-                                    optionLabel="label" 
-                                    optionValue="value" />
-                            </div>
-                </div>
+            
+            <div class="field col-4 py-0">
+                <label htmlFor="Salary">Salary</label>
+                <input pInputText id="Salary" type="number" [formControl]="formGroup.controls.salary" />
+            </div>
+
+            <div class="field col-4 py-0">
+                <label htmlFor="paymentType">Salary Type</label>
+                <p-selectButton 
+                    id="paymentType"
+                    [options]="salaryTypes" 
+                    [formControl]="formGroup.controls.salaryType"
+                    optionLabel="value" 
+                    optionValue="value" />
             </div>
         </div>
-
+    </div>
 </div>

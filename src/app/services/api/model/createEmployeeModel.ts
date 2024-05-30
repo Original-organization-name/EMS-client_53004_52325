@@ -20,5 +20,6 @@ export interface CreateEmployeeModel {
     contract?: Contract | null;
     medicalExaminations?: Array<MedicalExamination> | null;
     trainings?: Array<Training> | null;
+    imageBase64?: string | null;
 }
 

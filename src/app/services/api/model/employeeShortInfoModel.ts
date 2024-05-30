@@ -14,6 +14,7 @@ import { SalaryType } from './salaryType';
 
 export interface EmployeeShortInfoModel { 
     id: string;
+    imageName?: string | null;
     name: string;
     surname: string;
     pesel?: string | null;

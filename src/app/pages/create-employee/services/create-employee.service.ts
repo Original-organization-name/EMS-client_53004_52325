@@ -1,7 +1,9 @@
 import { Injectable, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Gender, MedicalExamination, PaymentType, SalaryType, Training, TrainingDictService } from 'src/app/services/api';
+import { Gender, MedicalExamination, PaymentType, Training } from 'src/app/services/api';
 import { ContractType } from 'src/app/services/api/model/contractType';
+import { ContractForm } from 'src/app/shared/forms/employee.forms';
+
 
 @Injectable()
 export class EmsCreateEmployeeService {
@@ -11,6 +13,7 @@ export class EmsCreateEmployeeService {
 
   public medicalExams = signal<MedicalExamination[]>([]);
   public trainingComponent = signal<Training[]>([]);
+  public contractForm?: FormGroup<ContractForm>;
 
   public personalForm = new FormGroup({
     name: new FormControl<string>("", Validators.required),
@@ -34,28 +37,5 @@ export class EmsCreateEmployeeService {
       type:  new FormControl<PaymentType>('Card'),
       bankAccount:  new FormControl<string | null>(null)
     }),
-  });
-
-  public contractForm = new FormGroup({
-    employmentDate: new FormControl<Date>(new Date),
-    conclusionDate: new FormControl<Date>(new Date),
-    positionItemId: new FormControl<string | null>(null),
-    workplaceItemId: new FormControl<string | null>(null),
-    occupationCodeItemId: new FormControl<string | null>(null),
-    startDate: new FormControl<Date>(new Date),
-    terminationDate: new FormControl<Date>(new Date),
-    fteNumerator: new FormControl<Number>(new Number),
-    fteDenominator: new FormControl<Number>(new Number),
-    salary: new FormControl<Number>(new Number),
-    paymentSalaryTypeOptions: new FormGroup({
-      type:  new FormControl<SalaryType>('Hourly'),
-      type2:  new FormControl<SalaryType>('Monthly'),
-    }),
-    contractsType: new FormControl({
-      contractType1: new FormControl<ContractType>('Employment contract'),
-      contractType2: new FormControl<ContractType>('Commission contract'),
-      contractType3: new FormControl<ContractType>('Specific-task contract'),
-    }),
-    workPlace: new FormControl<string>(null),
   });
 }

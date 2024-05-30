@@ -1,30 +1,73 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { EmsCreateEmployeeService } from '../../services/create-employee.service';
-import { DictionaryContractTypesModel } from 'src/app/services/api/model/contractType';
-import { DictionaryItemModel, OccupationCodeItem, OccupationDictService, PositionDictService, WorkplaceDictService } from 'src/app/services/api';
+import { ContractType, DictionaryItemModel, OccupationCodeItem, OccupationDictService, PositionDictService, SalaryType, WorkplaceDictService } from 'src/app/services/api';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ContractForm } from 'src/app/shared/forms/employee.forms';
 
 @Component({
   selector: 'app-contracts',
   templateUrl: './contracts.component.html',
 })
-export class EmsContractsComponent {
-  paymentSalaryTypeOptions: any[] = [{ label: 'Hourly', value: 'Hourly' },{ label: 'Monthly', value: 'Monthly' }];
+export class EmsContractsComponent implements OnInit {
+  protected salaryTypes: any[] = [{ value: SalaryType.Monthly },{ value: SalaryType.Hourly }];
+
   protected createService = inject(EmsCreateEmployeeService);
   protected apiPositionService = inject(PositionDictService);
   protected apiOccupationCode = inject(OccupationDictService);
   protected apiWorkPlace = inject(WorkplaceDictService);
 
-  contractsType: {label: string}[] = [{label:'Employment contract'}, {label:'Commission contract'}, {label:'Specific-task contract'}]
-
-  protected ContractsTypes: DictionaryContractTypesModel[] = [];
+  protected contractsType: {label: string, value: ContractType}[] = [{
+    label:'Employment contract', 
+    value: ContractType.Employment
+  }, {
+    label:'Commission contract', 
+    value: ContractType.Commission
+  }, {
+    label:'Specific-task contract',
+    value: ContractType.SpecificTask
+  }]
 
   protected positions: DictionaryItemModel[] = [];
-
   protected codes: OccupationCodeItem[] = [];
+  protected workplaces: DictionaryItemModel[] = [];
 
-  protected places: DictionaryItemModel[] = [];
+  protected formGroup!: FormGroup<ContractForm>;
 
   ngOnInit(): void {
+    if(this.createService.contractForm){
+      this.formGroup = this.createService.contractForm;
+    }
+    else{
+      this.formGroup = new FormGroup<ContractForm>({
+        employmentDate: new FormControl<Date>(null, Validators.required),
+        conclusionDate: new FormControl<Date>(null, Validators.required),
+        positionItemId: new FormControl<string | null>(null),
+        workplaceItemId: new FormControl<string | null>(null),
+        occupationCodeItemId: new FormControl<string | null>(null),
+        startDate: new FormControl<Date>(null, Validators.required),
+        terminationDate: new FormControl<Date | null>(null),
+        fteNumerator: new FormControl<number>(1, Validators.required),
+        fteDenominator: new FormControl<number>(1, Validators.required),
+        salary: new FormControl<number>(null, Validators.required),
+        salaryType: new FormControl<SalaryType>(SalaryType.Monthly, Validators.required),
+        contractType: new FormControl<ContractType>(ContractType.Employment, Validators.required),
+      })
+
+      const dateOfEmploymentEnter = this.formGroup.controls.employmentDate.valueChanges
+        .subscribe(date => {
+          if(!this.formGroup.controls.conclusionDate.value){
+            this.formGroup.controls.conclusionDate.setValue(date);
+          }
+          dateOfEmploymentEnter.unsubscribe();
+        })
+
+      const change = this.formGroup.valueChanges
+        .subscribe(_ => {
+          this.createService.contractForm = this.formGroup;
+          change.unsubscribe();
+        });
+    }
+
     const get$ = this.apiPositionService
       .apiPositionsGet()
       .subscribe(data => {
@@ -42,7 +85,7 @@ export class EmsContractsComponent {
     const geTWorkPlace$ = this.apiWorkPlace
       .apiWorkplacesGet()
       .subscribe(place => {
-        this.places = place;
+        this.workplaces = place;
         geTWorkPlace$.unsubscribe();
       })
   }

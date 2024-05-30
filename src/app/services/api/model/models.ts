@@ -1,6 +1,7 @@
 export * from './address';
 export * from './contract';
 export * from './contractModel';
+export * from './contractType';
 export * from './createEmployeeModel';
 export * from './dashboardAnalytics';
 export * from './dictionaryItem';
