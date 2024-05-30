@@ -12,11 +12,11 @@
 
 
 export interface MedicalExaminationModel { 
-    id?: string;
-    employeeId?: string;
-    medicalExamItemId?: string;
-    medicalExamItem?: string | null;
-    executionDate?: string;
+    id: string;
+    employeeId: string;
+    medicalExamItemId: string;
+    medicalExamItem: string;
+    executionDate: string;
     expirationDate?: string | null;
 }
 

@@ -12,6 +12,6 @@
 
 
 export interface DictionaryItem { 
-    value?: string | null;
+    value: string;
 }
 

@@ -1,14 +1,14 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { NotfoundComponent } from './demo/components/notfound/notfound.component';
-import { AppLayoutComponent } from "./layout/app.layout.component";
+import { AppLayoutComponent } from './layout/app.layout.component';
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot([
-            {
-                path: '', component: AppLayoutComponent,
-                children: [
+  imports: [
+    RouterModule.forRoot([
+        {
+          path: '', component: AppLayoutComponent,
+          children: [
                     { path: '', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
                     { path: 'uikit', loadChildren: () => import('./demo/components/uikit/uikit.module').then(m => m.UIkitModule) },
                     { path: 'utilities', loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
@@ -18,17 +18,24 @@ import { AppLayoutComponent } from "./layout/app.layout.component";
                 ]
             },
             {
-                path: 'app', component: AppLayoutComponent,
-                children: [
-                    { path: '', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.EmsDashboardModule) },
-                ]
+              path: 'app', component: AppLayoutComponent,
+              children: [
+                  { path: '', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.EmsDashboardModule) },
+                  { 
+                      path: 'employees', 
+                      children: [
+                        { path: '', loadChildren: () => import('./pages/table/table.module').then(m => m.EsmTableModule) },
+                        { path: 'create', loadChildren: () => import('./pages/create-employee/create-employee.module').then(m => m.EmsCreateEmployeeModule) },
+                      ]
+                    },
+              ]
             },
             { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
             { path: 'landing', loadChildren: () => import('./demo/components/landing/landing.module').then(m => m.LandingModule) },
-            { path: 'notfound', component: NotfoundComponent },
-            { path: '**', redirectTo: '/notfound' },
+        { path: 'notfound', component: NotfoundComponent },
+        { path: '**', redirectTo: '/notfound' },
         ], { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', onSameUrlNavigation: 'reload' })
-    ],
+  ],
     exports: [RouterModule]
 })
 export class AppRoutingModule {

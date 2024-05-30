@@ -12,8 +12,8 @@
 
 
 export interface Training { 
-    trainingItemId?: string;
-    executionDate?: string;
+    trainingItemId: string;
+    executionDate: string;
     expirationDate?: string | null;
 }
 

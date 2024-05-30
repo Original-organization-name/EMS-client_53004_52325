@@ -12,7 +12,7 @@
 
 
 export interface Qualification { 
-    qualificationItemId?: string;
+    qualificationItemId: string;
     expirationDate?: string | null;
 }
 

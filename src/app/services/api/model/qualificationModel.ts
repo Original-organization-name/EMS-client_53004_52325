@@ -12,10 +12,10 @@
 
 
 export interface QualificationModel { 
-    id?: string;
-    employeeId?: string;
-    qualificationItemId?: string;
-    qualificationItem?: string | null;
+    id: string;
+    employeeId: string;
+    qualificationItemId: string;
+    qualificationItem: string;
     expirationDate?: string | null;
 }
 

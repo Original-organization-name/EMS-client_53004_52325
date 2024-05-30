@@ -12,19 +12,19 @@
 import { Address } from './address';
 import { PaymentMethod } from './paymentMethod';
 import { Gender } from './gender';
-import { Contact } from './contact';
 
 
 export interface Employee { 
-    name?: string | null;
-    surname?: string | null;
+    name: string;
+    surname: string;
     pesel?: string | null;
     nip?: string | null;
     birthdate?: string | null;
-    gender?: Gender;
-    address?: Address;
-    contacts?: Array<Contact> | null;
-    paymentMethod?: PaymentMethod;
+    gender?: Gender | null;
+    address?: Address | null;
+    phoneNumber?: string | null;
+    email?: string | null;
+    paymentMethod?: PaymentMethod | null;
 }
 export namespace Employee {
 }

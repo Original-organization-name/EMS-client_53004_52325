@@ -1,0 +1,73 @@
+
+<div class="grid p-fluid">
+	<div class="col-12 md:col-5">
+		<div class="card p-fluid">
+            <h5>Create New</h5>
+			<div class="p-formgrid grid pt-4">
+                <div class="field col-12 py-0">
+                    <label htmlFor="medicalExamId">Medical examination type</label>
+                    <p-dropdown 
+                        id="medicalExamId"
+                        [options]="medicalExamDict" 
+                        placeholder="Select type" 
+                        optionLabel="value"
+                        [filter]="true"
+                        filterBy="value" 
+                        optionValue="id"
+                        [showClear]="true"
+                        [formControl]="formGroup.controls.medicalExamItemId">
+                    </p-dropdown>
+                </div>
+
+                <div class="col-12 py-0">
+                    <app-date-period-picker
+                        [fromControl]="formGroup.controls.executionDate"
+                        [toControl]="formGroup.controls.expirationDate">
+                    </app-date-period-picker>
+                </div>
+            </div>
+
+            <div class="grid grid-nogutter justify-content-between mt-5">
+                <p-button label="Clear" [text]="true" severity="danger" (onClick)="createFormGroup()"/>
+                <p-button label="Add" (onClick)="add()" severity="success"></p-button>
+            </div>
+		</div>
+
+        <div class="card p-fluid">
+            <h5>Create New Type</h5>
+			<div class="p-formgrid grid pt-4">
+                <div class="field col-10 py-0">
+                    <label htmlFor="newTypeTitle">Title</label>
+                    <input pInputText id="newTypeTitle" type="text" [formControl]="newTypeTitle"/>
+                </div>
+
+                <div class="col-2 grid grid-nogutter align-items-center">
+                    <p-button  label="Add" (onClick)="addMedicalExamType()" severity="success"></p-button>
+                </div>
+            </div>
+		</div>
+	</div>
+
+    <div class="col-12 md:col-7">
+		<div class="card p-fluid">
+            <h5>Employee medical exams</h5>
+            <p-table [value]="createService.medicalExams()" [paginator]="true" [rows]="10" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="medicalExamItemId">Type<p-sortIcon field="medicalExamItemId"></p-sortIcon></th>
+                        <th pSortableColumn="executionDate">From<p-sortIcon field="executionDate"></p-sortIcon></th>
+                        <th pSortableColumn="expirationDate">To<p-sortIcon field="expirationDate"></p-sortIcon></th>
+                        <th pSortableColumn="Status">Status<p-sortIcon field="Status"></p-sortIcon></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-exam>
+                    <tr>
+                        <td>{{finTypeById(exam.medicalExamItemId).value}}</td>
+                        <td>{{exam.executionDate | date: 'shortDate'}}</td>
+                        <td>{{exam.expirationDate | date: 'shortDate'}}</td>
+                        <td>ok</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+		</div>
+</div>

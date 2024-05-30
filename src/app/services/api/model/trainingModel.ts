@@ -12,11 +12,11 @@
 
 
 export interface TrainingModel { 
-    id?: string;
-    employeeId?: string;
-    trainingItemId?: string;
-    trainingItem?: string | null;
-    executionDate?: string;
+    id: string;
+    employeeId: string;
+    trainingItemId: string;
+    trainingItem: string;
+    executionDate: string;
     expirationDate?: string | null;
 }
 
