@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import { SalaryType } from './salaryType';
+import { ContractType } from './contractType';
 
 
 export interface EmployeeShortInfoModel { 
@@ -18,6 +19,7 @@ export interface EmployeeShortInfoModel {
     name: string;
     surname: string;
     pesel?: string | null;
+    contractType?: ContractType | null;
     employmentDate?: string | null;
     terminationDate?: string | null;
     salary?: number | null;

@@ -69,12 +69,24 @@
                             </div>
                         </td>
                         <td style="width: 22%; min-width: 8rem;">
-                            {{employee.contractType}}<br>
-                            {{employee.fteNumerator}}/{{employee.fteDenominator}}
+                            <ng-container *ngIf="!employee.contractType else contractDetails">
+                                <p-button label="Add" [text]="true" />
+                            </ng-container>
+                            
+                            <ng-template #contractDetails>
+                                {{employee.contractType}}<br>
+                                {{employee.fteNumerator}}/{{employee.fteDenominator}}
+                            </ng-template>
                         </td>
                         <td style="width: 15%; min-width: 8rem;">
-                            {{employee.salary}}<br>
-                            {{employee.salaryType}}
+                            <ng-container *ngIf="!employee.salary else salaryInfo">
+                                -
+                            </ng-container>
+                            
+                            <ng-template #salaryInfo>
+                                {{employee.salary}}<br>
+                                {{employee.salaryType}}
+                            </ng-template>
                         </td>
                         <td style="width: 30%; min-width: 8rem;" class="text-right pr-4">
                             {{employee.employmentDate | date : 'dd.MM.yyyy' }}
