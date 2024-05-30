@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Gender, MedicalExamination, PaymentType, SalaryType } from 'src/app/services/api';
+import { Gender, MedicalExamination, PaymentType, SalaryType, Training, TrainingDictService } from 'src/app/services/api';
 import { ContractType } from 'src/app/services/api/model/contractType';
 
 @Injectable()
@@ -10,6 +10,7 @@ export class EmsCreateEmployeeService {
   public imageSrc: any = '';
 
   public medicalExams = signal<MedicalExamination[]>([]);
+  public trainingComponent = signal<Training[]>([]);
 
   public personalForm = new FormGroup({
     name: new FormControl<string>("", Validators.required),

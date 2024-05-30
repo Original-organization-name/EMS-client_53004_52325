@@ -17,7 +17,7 @@ export class EmsCreateEmployeeComponent {
   protected rout = inject(ActivatedRoute);
   items!: Array<MenuItem & {formGroup?: FormGroup}>;
 
-  protected active: number = 1;
+  protected active: number = 0;
 
   nextPage() {
     if (!this.items[this.active].formGroup || this.items[this.active].formGroup.valid) {

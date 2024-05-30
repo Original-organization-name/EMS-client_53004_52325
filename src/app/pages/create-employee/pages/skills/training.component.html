@@ -1,0 +1,69 @@
+<div class="grid p-fluid">
+    <div class="col-12 md:col-5">
+        <div class="card p-fluid">
+            <h5>Create new</h5>
+            <div class="p-formgrid grid pt-4">
+                <div class="field col-12 py-0">
+                    <label htmlFor="training">Training type</label>
+                    <p-dropdown 
+                        id="training"
+                        [options]="trainings" 
+                        placeholder="Select type"
+                        optionLabel="value"
+                        filterBy="value" 
+                        optionValue="id"
+                        [formControl]="formGroupTraining.controls.trainingItemId">
+                    </p-dropdown>
+                </div>
+                <div class="col-12 py-0">
+                </div>
+
+                <div class="col-12 py-0">
+                    <app-date-period-picker
+                        [fromControl]="formGroupTraining.controls.executionDate"
+                        [toControl]="formGroupTraining.controls.expirationDate">
+                    </app-date-period-picker>
+                </div>
+            </div>
+            <div class="grid grid-nogutter justify-content-between mt-5">
+                    <p-button label="Clear" [text]="true" severity="danger" />
+                    <p-button label="Add" severity="success"></p-button>
+                </div>
+        </div>
+        <div class="card p-fluid">
+            <h5>Create New Type</h5>
+			<div class="p-formgrid grid pt-4">
+                <div class="field col-10 py-0">
+                    <label htmlFor="">Title</label>
+                    <input pInputText id="" type="text" [formControl]=""/>
+                </div>
+                <div class="col-2 grid grid-nogutter align-items-center">
+                    <p-button  label="Add"  severity="success"></p-button>
+                </div>
+            </div>
+		</div>
+    </div>
+
+    <div class="col-12 md:col-7">
+		<div class="card p-fluid">
+            <h5></h5>
+            <p-table [value]="" [paginator]="true" [rows]="10" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="">Type<p-sortIcon field=""></p-sortIcon></th>
+                        <th pSortableColumn="">From<p-sortIcon field=""></p-sortIcon></th>
+                        <th pSortableColumn="">To<p-sortIcon field=""></p-sortIcon></th>
+                        <th pSortableColumn="">Status<p-sortIcon field=""></p-sortIcon></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-exam>
+                    <tr>
+                        <td>{{finTypeById().value}}</td>
+                        <td>{{exam.executionDate | date: 'shortDate'}}</td>
+                        <td>{{exam.expirationDate | date: 'shortDate'}}</td>
+                        <td>ok</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+		</div>
+</div>
