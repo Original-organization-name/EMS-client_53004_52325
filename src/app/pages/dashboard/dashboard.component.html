@@ -59,11 +59,11 @@
                 </ng-template> 
                 <ng-template pTemplate="body" let-employee>
                     <tr>
-                        <td style="width: 33%; min-width: 8rem;">
+                        <td style="width: 33%; min-width: 200px;">
                             <div class="flex align-items-start align-items-center">
-                                <img [alt]="employee.name + employee.surname" [src]="getImagePath(employee.imageName)" width="32" style="vertical-align: middle"/>
+                                <img [src]="getImagePath(employee.imageName)" width="32" style="vertical-align: middle"/>
                                 <div>
-                                    <span class="image-text ml-2">{{employee.name}} {{employee.surname}}</span>
+                                    <span class="image-text ml-2">{{employee.name}} {{employee.surname}}</span><br>
                                     <span *ngIf="employee.pesel" class="image-text ml-2">{{employee.pesel}}</span>
                                 </div>
                             </div>

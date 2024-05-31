@@ -8,7 +8,8 @@ import { CreateEmployeeModel, EmployeesService } from 'src/app/services/api';
 
 @Component({
   selector: 'app-create-employee',
-  templateUrl: './create-employee.component.html'
+  templateUrl: './create-employee.component.html',
+  providers: [EmsCreateEmployeeService]
 })
 export class EmsCreateEmployeeComponent {
   protected createService = inject(EmsCreateEmployeeService);
