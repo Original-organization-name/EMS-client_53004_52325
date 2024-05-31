@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { EmsCreateEmployeeService } from '../../services/create-employee.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DictionaryItemModel, MedicalExaminationDictService, TrainingDictService, TrainingModel } from 'src/app/services/api';
+import { DictionaryItemModel, TrainingDictService } from 'src/app/services/api';
 
 @Component({
   selector: 'app-training',
@@ -44,7 +44,7 @@ export class EmsTrainingComponent {
 
   protected add() {
     const value = this.formGroupTraining.getRawValue();
-    this.createTrainingService.trainingComponent.update(items => [...items, {
+    this.createTrainingService.trainings.update(items => [...items, {
       trainingItemId: value.trainingItemId,
       executionDate: value.executionDate.toISOString(),
       expirationDate: value.expirationDate?.toISOString()

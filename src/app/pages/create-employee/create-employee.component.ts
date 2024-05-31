@@ -60,6 +60,7 @@ export class EmsCreateEmployeeComponent {
           paymentMethod: employeeData.paymentMethod,
         },
         medicalExaminations: this.createService.medicalExams(),
+        trainings: this.createService.trainings(),
         imageBase64: this.createService.imageSrc
       } 
 

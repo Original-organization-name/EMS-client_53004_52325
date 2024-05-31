@@ -12,7 +12,7 @@ export class EmsCreateEmployeeService {
   public imageSrc: any = '';
 
   public medicalExams = signal<MedicalExamination[]>([]);
-  public trainingComponent = signal<Training[]>([]);
+  public trainings = signal<Training[]>([]);
   public contractForm?: FormGroup<ContractForm>;
 
   public personalForm = new FormGroup({

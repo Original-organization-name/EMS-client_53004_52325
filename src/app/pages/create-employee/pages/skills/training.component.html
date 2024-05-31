@@ -48,7 +48,7 @@
     <div class="col-12 md:col-7">
         <div class="card p-fluid">
             <h5>Training list</h5>
-            <p-table [value]="createTrainingService.trainingComponent()" [paginator]="true" [rows]="10" responsiveLayout="scroll">
+            <p-table [value]="createTrainingService.trainings()" [paginator]="true" [rows]="10" responsiveLayout="scroll">
                 <ng-template pTemplate="header">
                     <tr>
                         <th pSortableColumn="trainingItemId">Type<p-sortIcon field="trainingItemId"></p-sortIcon></th>
