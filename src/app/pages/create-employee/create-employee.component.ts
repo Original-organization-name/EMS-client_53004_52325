@@ -8,7 +8,8 @@ import { CreateEmployeeModel, EmployeesService } from 'src/app/services/api';
 
 @Component({
   selector: 'app-create-employee',
-  templateUrl: './create-employee.component.html'
+  templateUrl: './create-employee.component.html',
+  providers: [EmsCreateEmployeeService]
 })
 export class EmsCreateEmployeeComponent {
   protected createService = inject(EmsCreateEmployeeService);
@@ -17,7 +18,7 @@ export class EmsCreateEmployeeComponent {
   protected rout = inject(ActivatedRoute);
   items!: Array<MenuItem & {getFormGroup?: () => FormGroup | undefined}>;
 
-  protected active: number = 1;
+  protected active: number = 0;
 
   nextPage() {
     if (!this.items[this.active].getFormGroup || this.items[this.active].getFormGroup()?.valid != false) {

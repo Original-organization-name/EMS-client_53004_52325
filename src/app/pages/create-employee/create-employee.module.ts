@@ -60,6 +60,5 @@ import { TableModule } from 'primeng/table';
 	EmsContractsComponent,
 	EmsMedicalExamsComponent
   ],
-  providers: [EmsCreateEmployeeService]
 })
 export class EmsCreateEmployeeModule { }

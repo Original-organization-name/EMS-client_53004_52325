@@ -9,11 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { Status } from './status';
 import { SalaryType } from './salaryType';
 import { ContractType } from './contractType';
 
 
-export interface EmployeeShortInfoModel { 
+export interface EmployeeTableInfo { 
     id: string;
     imageName?: string | null;
     name: string;
@@ -26,8 +27,13 @@ export interface EmployeeShortInfoModel {
     salaryType?: SalaryType | null;
     fteDenominator?: number | null;
     fteNumerator?: number | null;
+    position?: string | null;
+    workplace?: string | null;
+    contractStartDate?: string | null;
+    bhpStatus?: Status | null;
+    medicalExamStatus?: Status | null;
 }
-export namespace EmployeeShortInfoModel {
+export namespace EmployeeTableInfo {
 }
 
 
