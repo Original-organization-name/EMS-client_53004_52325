@@ -62,6 +62,5 @@ import { EmsTrainingComponent } from './pages/skills/training.component';
 	EmsMedicalExamsComponent,
 	EmsTrainingComponent
   ],
-  providers: [EmsCreateEmployeeService]
 })
 export class EmsCreateEmployeeModule { }

@@ -33,6 +33,7 @@ model/educationModel.ts
 model/employee.ts
 model/employeeModel.ts
 model/employeeShortInfoModel.ts
+model/employeeTableInfo.ts
 model/gender.ts
 model/medicalExamination.ts
 model/medicalExaminationModel.ts
@@ -44,6 +45,7 @@ model/qualification.ts
 model/qualificationModel.ts
 model/salaryType.ts
 model/schoolType.ts
+model/status.ts
 model/training.ts
 model/trainingModel.ts
 param.ts

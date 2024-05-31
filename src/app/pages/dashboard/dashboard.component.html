@@ -59,22 +59,34 @@
                 </ng-template> 
                 <ng-template pTemplate="body" let-employee>
                     <tr>
-                        <td style="width: 33%; min-width: 8rem;">
+                        <td style="width: 33%; min-width: 200px;">
                             <div class="flex align-items-start align-items-center">
-                                <img [alt]="employee.name + employee.surname" [src]="getImagePath(employee.imageName)" width="32" style="vertical-align: middle"/>
+                                <img [src]="getImagePath(employee.imageName)" width="32" style="vertical-align: middle"/>
                                 <div>
-                                    <span class="image-text ml-2">{{employee.name}} {{employee.surname}}</span>
+                                    <span class="image-text ml-2">{{employee.name}} {{employee.surname}}</span><br>
                                     <span *ngIf="employee.pesel" class="image-text ml-2">{{employee.pesel}}</span>
                                 </div>
                             </div>
                         </td>
                         <td style="width: 22%; min-width: 8rem;">
-                            {{employee.contractType}}<br>
-                            {{employee.fteNumerator}}/{{employee.fteDenominator}}
+                            <ng-container *ngIf="!employee.contractType else contractDetails">
+                                <p-button label="Add" [text]="true" />
+                            </ng-container>
+                            
+                            <ng-template #contractDetails>
+                                {{employee.contractType}}<br>
+                                {{employee.fteNumerator}}/{{employee.fteDenominator}}
+                            </ng-template>
                         </td>
                         <td style="width: 15%; min-width: 8rem;">
-                            {{employee.salary}}<br>
-                            {{employee.salaryType}}
+                            <ng-container *ngIf="!employee.salary else salaryInfo">
+                                -
+                            </ng-container>
+                            
+                            <ng-template #salaryInfo>
+                                {{employee.salary | currency:'USD':'symbol'}}<br>
+                                {{employee.salaryType}}
+                            </ng-template>
                         </td>
                         <td style="width: 30%; min-width: 8rem;" class="text-right pr-4">
                             {{employee.employmentDate | date : 'dd.MM.yyyy' }}
