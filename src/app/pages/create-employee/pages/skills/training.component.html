@@ -1,4 +1,5 @@
 <div class="grid p-fluid">
+    
     <div class="col-12 md:col-5">
         <div class="card p-fluid">
             <h5>Create new</h5>
@@ -26,8 +27,8 @@
                 </div>
             </div>
             <div class="grid grid-nogutter justify-content-between mt-5">
-                    <p-button label="Clear" [text]="true" severity="danger" />
-                    <p-button label="Add" severity="success"></p-button>
+                    <p-button label="Clear" [text]="true" severity="danger" (onClick)="createTrainingFormGroup()"/>
+                    <p-button label="Add" severity="success" (onClick)="add()"></p-button>
                 </div>
         </div>
         <div class="card p-fluid">
@@ -35,35 +36,36 @@
 			<div class="p-formgrid grid pt-4">
                 <div class="field col-10 py-0">
                     <label htmlFor="">Title</label>
-                    <input pInputText id="" type="text" [formControl]=""/>
+                    <input pInputText id="newTypeTitle" type="text" [formControl]="newTypeTitle"/>
                 </div>
                 <div class="col-2 grid grid-nogutter align-items-center">
-                    <p-button  label="Add"  severity="success"></p-button>
+                    <p-button  label="Add"  severity="success" (onClick)="addTrainingType()"></p-button>
                 </div>
             </div>
 		</div>
     </div>
 
     <div class="col-12 md:col-7">
-		<div class="card p-fluid">
-            <h5></h5>
-            <p-table [value]="" [paginator]="true" [rows]="10" responsiveLayout="scroll">
+        <div class="card p-fluid">
+            <h5>Training list</h5>
+            <p-table [value]="createTrainingService.trainingComponent()" [paginator]="true" [rows]="10" responsiveLayout="scroll">
                 <ng-template pTemplate="header">
                     <tr>
-                        <th pSortableColumn="">Type<p-sortIcon field=""></p-sortIcon></th>
-                        <th pSortableColumn="">From<p-sortIcon field=""></p-sortIcon></th>
-                        <th pSortableColumn="">To<p-sortIcon field=""></p-sortIcon></th>
-                        <th pSortableColumn="">Status<p-sortIcon field=""></p-sortIcon></th>
+                        <th pSortableColumn="trainingItemId">Type<p-sortIcon field="trainingItemId"></p-sortIcon></th>
+                        <th pSortableColumn="executionDate">From<p-sortIcon field="executionDate"></p-sortIcon></th>
+                        <th pSortableColumn="expirationDate">To<p-sortIcon field="expirationDate"></p-sortIcon></th>
+                        <th pSortableColumn="Status">Status<p-sortIcon field="Status"></p-sortIcon></th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-exam>
+                <ng-template pTemplate="body" let-training>
                     <tr>
-                        <td>{{finTypeById().value}}</td>
-                        <td>{{exam.executionDate | date: 'shortDate'}}</td>
-                        <td>{{exam.expirationDate | date: 'shortDate'}}</td>
+                        <td>{{findTypeById(training.trainingItemId).value}}</td>
+                        <td>{{training.executionDate | date: 'shortDate'}}</td>
+                        <td>{{training.expirationDate | date: 'shortDate'}}</td>
                         <td>ok</td>
                     </tr>
                 </ng-template>
             </p-table>
-		</div>
+        </div>
+    </div>
 </div>

@@ -9,9 +9,11 @@ import { DictionaryItemModel, MedicalExaminationDictService, TrainingDictService
 })
 export class EmsTrainingComponent {
   protected apiTrainingDict = inject(TrainingDictService);
-  protected createService = inject(EmsCreateEmployeeService);
+  protected createTrainingService = inject(EmsCreateEmployeeService);
 
   protected trainings: DictionaryItemModel[] = [];
+
+  protected newTypeTitle = new FormControl<string>("")
 
   protected formGroupTraining = new FormGroup({
     trainingItemId: new FormControl<string>(null),
@@ -28,6 +30,8 @@ export class EmsTrainingComponent {
       });
     
     this.createTrainingFormGroup();
+
+    this.apiTrainingDict;
   }
 
   protected createTrainingFormGroup() {
@@ -40,12 +44,40 @@ export class EmsTrainingComponent {
 
   protected add() {
     const value = this.formGroupTraining.getRawValue();
-    this.createService.trainingComponent.update(items => [...items, {
+    this.createTrainingService.trainingComponent.update(items => [...items, {
       trainingItemId: value.trainingItemId,
       executionDate: value.executionDate.toISOString(),
       expirationDate: value.expirationDate?.toISOString()
     }]);
 
     this.createTrainingFormGroup();
+  }
+
+  protected getTrainingDict(){
+    const get$ = this.apiTrainingDict
+      .apiTrainingsGet()
+      .subscribe(items => {
+        this.trainings = items;
+        get$.unsubscribe();
+      });
+  }
+
+  protected addTrainingType(){
+    if(this.newTypeTitle.valid){
+      const add$ = this.apiTrainingDict
+        .apiTrainingsPost({value: this.newTypeTitle.value})
+        .subscribe(item => {
+          this.newTypeTitle = new FormControl<string>("", Validators.required);
+          this.getTrainingDict();
+          add$.unsubscribe();
+        })
+    }
+    else{
+      this.newTypeTitle.markAsDirty({ onlySelf: true });
+    }
+  }
+
+  protected findTypeById(trainingItemId: string){
+    return this.trainings.find(x => x.id == trainingItemId)
   }
 } 
