@@ -27,6 +27,7 @@ import { EmsMedicalExamsComponent } from './pages/medical-exams/medical-exams.co
 import { EmsDatePeriodPickerComponent } from 'src/app/shared/components/date-period-picker/date-period-picker.component';
 import { TableModule } from 'primeng/table';
 import { EmsTrainingComponent } from './pages/skills/training.component';
+import { DialogModule } from 'primeng/dialog';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { EmsTrainingComponent } from './pages/skills/training.component';
 	MessageModule,
 	SelectButtonModule,
 	EmsDatePeriodPickerComponent,
-	TableModule
+	TableModule,
+	DialogModule
   ],
   declarations: [
 	EmsCreateEmployeeComponent,

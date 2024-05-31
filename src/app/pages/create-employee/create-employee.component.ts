@@ -4,7 +4,7 @@ import { EmsCreateEmployeeService } from './services/create-employee.service';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { validateAllFormFields } from 'src/app/shared/helpers/form.helpers';
-import { CreateEmployeeModel, EmployeesService } from 'src/app/services/api';
+import { CreateEmployeeModel, EmployeeModel, EmployeesService } from 'src/app/services/api';
 
 @Component({
   selector: 'app-create-employee',
@@ -16,6 +16,9 @@ export class EmsCreateEmployeeComponent {
   protected employeeService = inject(EmployeesService);
   protected router = inject(Router);
   protected rout = inject(ActivatedRoute);
+
+  protected dialogSave: boolean = false;
+  protected addedEmployee?: EmployeeModel;
   items!: Array<MenuItem & {getFormGroup?: () => FormGroup | undefined}>;
 
   protected active: number = 0;
@@ -84,6 +87,8 @@ export class EmsCreateEmployeeComponent {
       const add$ = this.employeeService
         .addEmployee(request)
         .subscribe(data => {
+          this.dialogSave = true;
+          this.addedEmployee = data;
           add$.unsubscribe();
         })
       }
@@ -112,5 +117,11 @@ export class EmsCreateEmployeeComponent {
         label: 'Employment history', 
       },
     ];
+  }
+
+  protected reload() {
+    this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/app/employees/create']);
+  }); 
   }
 }
