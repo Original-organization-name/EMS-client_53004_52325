@@ -1,27 +1,46 @@
-# EMSCLIENT
+# Employee Manager System (EMS)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
+## Project Overview
 
-## Development server
+Employee Manager System (EMS) is an Angular-based application designed to manage employee information within an organization. The system allows administrators to add, update, delete, and view employee details efficiently.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This README file provides an overview of the project, setup instructions, and steps to run the application using Docker Compose.
 
-## Code scaffolding
+### Installation
+1. Clone the repository:
+```
+> git clone https://github.com/Original-organization-name/EMS-client.git
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> cd EMS-client
+```
 
-## Build
+2. Install the project dependencies:
+```
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Running the Application
+#### Docker Compose
+To run the application using Docker Compose, follow these steps:
 
-## Running unit tests
+1. Ensure Docker and Docker Compose are installed and running on your machine.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Build and run the Docker containers:
+```
+docker-compose -f web.yaml up --build
+```
+3. Open your browser and navigate to http://localhost:4200/app to access the application.
 
-## Running end-to-end tests
+#### Development Server
+To run the application in development mode:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Start the development server:
 
-## Further help
+```
+ng serve
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+2. Open your browser and navigate to http://localhost:4200/app.
+
+### Conclusion
+This README provides the basic information to get started with the Employee Manager System (EMS) project. For further details and contributions, please refer to the project's documentation or contact the repository maintainer.
