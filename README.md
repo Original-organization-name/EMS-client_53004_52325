@@ -9,7 +9,7 @@ This README file provides an overview of the project, setup instructions, and st
 ### Installation
 1. Clone the repository:
 ```
-> git clone https://github.com/Original-organization-name/EMS-clienti_53004_52325.git
+> git clone https://github.com/Original-organization-name/EMS-client_53004_52325.git
 
 > cd EMS-client
 ```
