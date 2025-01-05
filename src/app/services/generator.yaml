@@ -8,9 +8,9 @@ services:
     networks:
       - ems
     command: >
-      generate -i http://ems-api/swagger/v1/swagger.yaml
+      generate -i http://ems-api:8080/swagger/v1/swagger.yaml
       -g typescript-angular -o /api
 
 networks:
   ems:
-    external: true
+    external: true  

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { EmployeeTableInfo, EmployeesService, Status } from 'src/app/services/api';
+import { EmployeeTableInfo, EmployeesService, RecordStatus } from 'src/app/services/api';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -92,14 +92,14 @@ export class EsmTableComponent {
   public getStatusByDate(date?: string){
     if(moment().isAfter(date))
     {
-      return Status.Ended;
+      return RecordStatus.Ended;
     }
 
     if(!date || moment().add(14, 'd').isSameOrBefore(date)){
-      return Status.Actual;
+      return RecordStatus.Actual;
     }
 
-    return Status.Ending;
+    return RecordStatus.Ending;
   }
 
   onGlobalFilter(table: Table, event: Event) {

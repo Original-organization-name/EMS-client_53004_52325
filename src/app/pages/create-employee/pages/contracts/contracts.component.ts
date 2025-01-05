@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { EmsCreateEmployeeService } from '../../services/create-employee.service';
-import { ContractType, DictionaryItemModel, OccupationCodeItem, OccupationDictService, PositionDictService, SalaryType, WorkplaceDictService } from 'src/app/services/api';
+import { ContractType, DictionaryItemModel, OccupationCodeItemModel, OccupationDictService, PositionDictService, SalaryType, WorkplaceDictService } from 'src/app/services/api';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContractForm } from 'src/app/shared/forms/employee.forms';
 
@@ -28,7 +28,7 @@ export class EmsContractsComponent implements OnInit {
   }]
 
   protected positions: DictionaryItemModel[] = [];
-  protected codes: OccupationCodeItem[] = [];
+  protected codes: OccupationCodeItemModel[] = [];
   protected workplaces: DictionaryItemModel[] = [];
 
   protected formGroup!: FormGroup<ContractForm>;
@@ -90,7 +90,7 @@ export class EmsContractsComponent implements OnInit {
       })
   }
 
-  protected findOccupationCode(code: string) : OccupationCodeItem | undefined {
+  protected findOccupationCode(code: string) : OccupationCodeItemModel | undefined {
     return this.codes.find(x => x.code == code);
   }
   

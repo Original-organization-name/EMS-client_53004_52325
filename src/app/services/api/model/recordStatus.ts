@@ -9,10 +9,11 @@
  */
 
 
-export type PaymentType = 'Cash' | 'Card';
+export type RecordStatus = 'Actual' | 'Ending' | 'Ended';
 
-export const PaymentType = {
-    Cash: 'Cash' as PaymentType,
-    Card: 'Card' as PaymentType
+export const RecordStatus = {
+    Actual: 'Actual' as RecordStatus,
+    Ending: 'Ending' as RecordStatus,
+    Ended: 'Ended' as RecordStatus
 };
 

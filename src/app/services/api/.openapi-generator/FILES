@@ -38,14 +38,14 @@ model/gender.ts
 model/medicalExamination.ts
 model/medicalExaminationModel.ts
 model/models.ts
-model/occupationCodeItem.ts
+model/occupationCodeItemModel.ts
 model/paymentMethod.ts
 model/paymentType.ts
 model/qualification.ts
 model/qualificationModel.ts
+model/recordStatus.ts
 model/salaryType.ts
 model/schoolType.ts
-model/status.ts
 model/training.ts
 model/trainingModel.ts
 param.ts
